@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Search / will display always -->
+    <item
+        android:id="@+id/action_map"
+
+        android:title="map"
+        app:showAsAction="ifRoom" />
+
+
+    <!-- Refresh -->
+    <item
+        android:id="@+id/action_gmail"
+
+        android:title="gmail"
+        app:showAsAction="ifRoom" />
+
+    <!-- Help -->
+    <item
+        android:id="@+id/action_call"
+
+        android:title="call"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

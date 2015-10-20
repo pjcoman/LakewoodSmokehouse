@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">The Blind Butcher</string>
+    <string name="action_settings">call</string>
+    <string name="action_settings2">email</string>
+    <string name="action_settings3">facebook</string>
+    <string name="action_settings4">instagram</string>
+    <string name="action_settings5">twitter</string>
+</resources>
