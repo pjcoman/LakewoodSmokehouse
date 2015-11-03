@@ -60,6 +60,28 @@
 
         />
 
+        <activity
+            android:name=".GetReviews"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:label="Reviews"
+
+            />
+        <activity
+        android:name=".StoreReviews"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+
+        />
+
+        <activity
+            android:name=".ShowReview"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+
+            />
+
+
+
     </application>
+
+
 
 </manifest>

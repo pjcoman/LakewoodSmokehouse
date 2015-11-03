@@ -156,6 +156,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentDrinks);
     }
 
+    public void addReview(View v) {
+
+        Intent intentDrinks = new Intent();
+        intentDrinks.setClass(this, StoreReviews.class);
+
+        startActivity(intentDrinks);
+    }
+
+    public void readReview(View v) {
+
+        Intent intentDrinks = new Intent();
+        intentDrinks.setClass(this, GetReviews.class);
+
+        startActivity(intentDrinks);
+    }
 
 
 
