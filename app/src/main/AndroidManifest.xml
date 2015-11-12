@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 
+
     <application
 
         android:name="ParseApplication"
@@ -41,14 +42,14 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme"
             android:launchMode="singleInstance"
 
         />
 
     <activity
         android:name=".drinks.DrinksViewPager"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:theme="@style/AppTheme"
 
         />
 
@@ -56,28 +57,21 @@
 
     <activity
         android:name=".menu.MenuViewPager"
+        android:theme="@style/AppTheme"
+
+        />
+
+        <activity
+        android:name=".GetReviews"
         android:theme="@style/Theme.AppCompat.NoActionBar"
 
         />
 
         <activity
-            android:name=".GetReviews"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:label="Reviews"
-
-            />
-        <activity
-        android:name=".StoreReviews"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-
-        />
-
-        <activity
-            android:name=".ShowReview"
+            android:name=".AddReview"
             android:theme="@style/Theme.AppCompat.NoActionBar"
 
             />
-
 
 
     </application>

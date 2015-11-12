@@ -10,18 +10,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import comapps.com.theblindbutcherdallas.drinks.DrinksViewPager;
 import comapps.com.theblindbutcherdallas.menu.MenuViewPager;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+
+    private ViewGroup mRoot;
+    private Button drinkButton;
+    private Button eatButton;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/MerriweatherSans-Italic.ttf")
@@ -29,8 +39,17 @@ public class MainActivity extends AppCompatActivity {
                 .build());
 
         setContentView(R.layout.activity_main);
+
+        mRoot = (ViewGroup) findViewById(R.id.container_a);
+        drinkButton = (Button) findViewById(R.id.drinkbutton);
+        eatButton = (Button) findViewById(R.id.eatbutton);
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
 
 
@@ -72,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         }
-
 
 
 
@@ -142,10 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void menulist(View v) {
 
-        Intent intentMenu = new Intent();
-        intentMenu.setClass(this, MenuViewPager.class);
-        intentMenu.putExtra("activityId", "menu");
-        startActivity(intentMenu);
+        Intent intentMeals = new Intent();
+        intentMeals.setClass(MainActivity.this, MenuViewPager.class);
+        intentMeals.putExtra("activityId", "meals");
+        startActivity(intentMeals);
+        overridePendingTransition(R.anim.pushinfromleft,
+                R.anim.pushouttoright);
+
+
     }
 
     public void drinkslist(View v) {
@@ -154,22 +176,25 @@ public class MainActivity extends AppCompatActivity {
         intentDrinks.setClass(this, DrinksViewPager.class);
         intentDrinks.putExtra("activityId", "drinks");
         startActivity(intentDrinks);
+        overridePendingTransition(R.anim.pushinfromright,
+                R.anim.pushouttoleft);
     }
 
     public void addReview(View v) {
 
-        Intent intentDrinks = new Intent();
-        intentDrinks.setClass(this, StoreReviews.class);
+        Intent intentAddReview = new Intent();
+        intentAddReview.setClass(this, AddReview.class);
 
-        startActivity(intentDrinks);
+        startActivity(intentAddReview);
     }
+
 
     public void readReview(View v) {
 
-        Intent intentDrinks = new Intent();
-        intentDrinks.setClass(this, GetReviews.class);
+        Intent intentReviews = new Intent();
+        intentReviews.setClass(this, GetReviews.class);
 
-        startActivity(intentDrinks);
+        startActivity(intentReviews);
     }
 
 
@@ -181,6 +206,10 @@ public class MainActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
 
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {

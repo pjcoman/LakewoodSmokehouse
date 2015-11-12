@@ -1,49 +1,36 @@
 package comapps.com.theblindbutcherdallas;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.RatingBar;
+import android.util.DisplayMetrics;
 import android.widget.TextView;
 
 /**
- * Created by me on 11/2/2015.
+ * Created by me on 11/7/2015.
  */
-public class ShowReview extends AppCompatActivity {
+public class ShowReview extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent intent = this.getIntent();
-        Bundle extras = intent.getExtras();
-        String reviewName = intent.getStringExtra("NAME");
-        Float reviewRating = extras.getFloat("RATING");
-        String reviewDescription = intent.getStringExtra("DESC");
-
-        Log.d("review name is" , reviewName);
-
-
-        Log.d("review rating is ", reviewRating.toString());
-        Log.d("review description is ", reviewDescription);
-
         setContentView(R.layout.activity_showreview);
-        setTitle(reviewName);
 
-        TextView nameView = (TextView) findViewById(R.id.textViewName);
-        RatingBar rb = (RatingBar) findViewById(R.id.ratingBar);
-        TextView descriptionView = (TextView) findViewById(R.id.textViewDescription);
+        Bundle extras = getIntent().getExtras();
 
-        LayerDrawable stars = (LayerDrawable) rb.getProgressDrawable();
-        stars.setTint(Color.YELLOW);
+        String review = extras.getString("reviewtext");
 
-        nameView.setText(reviewName);
-        rb.setRating(reviewRating);
-        descriptionView.setText(reviewDescription);
+
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        getWindow().setLayout((int)(width*.6), (int)(height*.6));
+
+        TextView reviewTV = (TextView) findViewById(R.id.textViewReview);
+        reviewTV.setText(review);
 
     }
 }

@@ -30,6 +30,7 @@ public class MenuViewPager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_main_viewpager_menu);
 
 
@@ -344,6 +345,12 @@ public class MenuViewPager extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pushinfromright, R.anim.pushouttoleft);
     }
 
 

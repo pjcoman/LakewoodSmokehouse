@@ -381,6 +381,12 @@ public class DrinksViewPager extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pushinfromleft, R.anim.pushouttoright);
+    }
+
 
 }
 

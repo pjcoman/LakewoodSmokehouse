@@ -90,6 +90,23 @@ public class ParseApplication extends Application implements BootstrapNotifier {
             }
         });
 
+        ParseQuery<ParseObject> queryReviews = new ParseQuery<>(
+                "theblindbutcherreviews");
+        // Locate the column named "day" in Parse.com and order list
+        // by ascending
+
+        queryReviews.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> object, ParseException e) {
+                // Remove the previously cached results.
+                ParseObject.unpinAllInBackground("theblindbutcherreviews", new DeleteCallback() {
+                    public void done(ParseException e) {
+                        // Cache the new results.
+                        ParseObject.pinAllInBackground("theblindbutcherreviews", object);
+                    }
+                });
+            }
+        });
+
 
         Log.d(TAG, "App started up");
 

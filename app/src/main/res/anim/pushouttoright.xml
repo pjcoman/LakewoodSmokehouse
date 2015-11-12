@@ -8,7 +8,7 @@
 
         android:toXDelta="100%"
 
-        android:duration="400"
+        android:duration="@android:integer/config_longAnimTime"
 
         />
 
