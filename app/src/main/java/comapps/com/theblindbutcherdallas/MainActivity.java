@@ -95,13 +95,8 @@ public class MainActivity extends AppCompatActivity  {
 
 
         if (id == R.id.action_settings2) {
-            Intent intent3 = new Intent(android.content.Intent.ACTION_SEND);
-            intent3.setType("text/plain");String[] address = {"lindseymiller@lindseymillerpr.com"};
-
-            intent3.putExtra(android.content.Intent.EXTRA_EMAIL, address);
-            intent3.putExtra(android.content.Intent.EXTRA_SUBJECT, "subject");
-            intent3.putExtra(android.content.Intent.EXTRA_TEXT, "text");
-            startActivityForResult((Intent.createChooser(intent3, "Email")), 1);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/dir/''/1919+Greenville+Ave,+Dallas,+TX+75206" +
+                    "/@32.8141255,-96.7726532,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x864e9f49d45f8155:0x6d15b5e3c59991b0!2m2!1d-96.7704645!2d32.8141255")));
 
             return true;
         }

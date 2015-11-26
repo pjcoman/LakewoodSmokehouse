@@ -23,11 +23,27 @@ import comapps.com.theblindbutcherdallas.R;
 /**
  * Created by me on 9/29/2015.
  */
-public class DrinksListViewFragmentDomesticBeersBottles extends ListFragment {
+public class DrinksListViewFragment extends ListFragment {
+
+    private static final String ARG_PAGE_NUMBER = "page_number";
 
     int x = 0;
     private List<DrinkListObject> drinkObject;
     DrinksListViewAdapter adapter;
+
+    public DrinksListViewFragment() {
+
+    }
+
+    public static DrinksListViewFragment newInstance(int page) {
+        DrinksListViewFragment fragment = new DrinksListViewFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PAGE_NUMBER, page);
+        fragment.setArguments(args);
+
+
+        return fragment;
+    }
 
 
     @Override
@@ -41,18 +57,19 @@ public class DrinksListViewFragmentDomesticBeersBottles extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        int groupId = getArguments().getInt(ARG_PAGE_NUMBER, 1);
 
         List<ParseObject> ob;
 
         try {
-            // Locate the class table named "stansbeers" in Parse.com
+
             ParseQuery<ParseObject> query = new ParseQuery<>(
                     "theblindbutcherdrinks").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 
 
-            query.orderByAscending("sort").whereEqualTo("group", "DOMESTICBEERSBOTTLES");
+            query.orderByAscending("sort").whereEqualTo("groupsort", groupId);
 
             ob = query.find();
 

@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinkListObject.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewActivity.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewAdapter.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewFragment.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewFragmentCocktails.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewFragmentDomesticBeersBottles.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/drinks/DrinksListViewFragmentDomesticBeersCans.java" charset="windows-1252" />
@@ -22,6 +23,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewAdapter.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewBoardsFragment.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewDessertsFragment.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewFragment.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewGreenThingsFragment.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewMeatFragment.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/comapps/com/theblindbutcherdallas/menu/MenuListViewPoutineFragment.java" charset="windows-1252" />
@@ -34,8 +36,6 @@
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_phone_android_purple_24dp.png" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/igicon.png" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/twicon.png" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp/drinkslistrow.xml" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp/menulistrow.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/drinklist_with_fragment.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/drinklistfragment.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/drinkslistrow.xml" charset="windows-1252" />

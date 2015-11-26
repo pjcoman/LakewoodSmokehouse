@@ -19,27 +19,45 @@ import java.util.List;
 
 import comapps.com.theblindbutcherdallas.R;
 
-
 /**
  * Created by me on 9/29/2015.
  */
-public class MenuListViewPoutineFragment extends ListFragment {
+public class MenuListViewFragment extends ListFragment {
 
-
+    private static final String ARG_PAGE_NUMBER = "page_number";
     private List<MenuListObject> menuObject;
     MenuListViewAdapter adapter;
+
+    public MenuListViewFragment() {
+
+    }
+
+    public static MenuListViewFragment newInstance(int page) {
+        MenuListViewFragment fragment = new MenuListViewFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PAGE_NUMBER, page);
+        fragment.setArguments(args);
+
+
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+
         return inflater.inflate(R.layout.menulistfragment, null, false);
+
+
+
     }
 
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        int groupId = getArguments().getInt(ARG_PAGE_NUMBER, 1);
 
         List<ParseObject> ob;
 
@@ -50,7 +68,9 @@ public class MenuListViewPoutineFragment extends ListFragment {
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 
-            query.orderByAscending("sort").whereEqualTo("group", "POUTINE");
+
+
+            query.orderByAscending("sort").whereEqualTo("groupsort", groupId);
 
 
             ob = query.find();
@@ -82,6 +102,7 @@ public class MenuListViewPoutineFragment extends ListFragment {
 
 
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
