@@ -6,10 +6,7 @@
               android:clickable="false"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              android:paddingBottom="20dp"
-              android:paddingLeft="20dp"
-              android:paddingRight="20dp"
-              android:paddingTop="20dp">
+              android:padding="10dp">
 
     <TextView
         android:id="@+id/itemTxt"
@@ -20,7 +17,7 @@
         android:padding="10dp"
         android:text="ITEM"
         android:textColor="@android:color/black"
-        android:textSize="22sp"
+        android:textSize="26sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -32,7 +29,7 @@
         android:padding="10dp"
         android:text="description"
         android:textColor="@android:color/black"
-        android:textSize="22sp"
+        android:textSize="26sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -43,7 +40,16 @@
         android:padding="5dp"
         android:text="price"
         android:textColor="@android:color/black"
-        android:textSize="22sp"
+        android:textSize="26sp"
         android:textStyle="bold|italic"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/dotSeparator"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/blackdot"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

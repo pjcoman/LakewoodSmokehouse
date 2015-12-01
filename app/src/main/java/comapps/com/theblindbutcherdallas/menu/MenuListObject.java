@@ -1,6 +1,6 @@
 package comapps.com.theblindbutcherdallas.menu;
 
-public class MenuListObject {
+class MenuListObject {
 
     private String item;
     private String group;

@@ -1,10 +1,10 @@
 package comapps.com.theblindbutcherdallas;
 
-public class ReviewListObject {
+class ReviewListObject {
 
-	public String reviewName;
-	public String reviewRating;
-	public String review;
+	private String reviewName;
+	private String reviewRating;
+	private String review;
 
 	public String getReviewName() {
 		return reviewName;

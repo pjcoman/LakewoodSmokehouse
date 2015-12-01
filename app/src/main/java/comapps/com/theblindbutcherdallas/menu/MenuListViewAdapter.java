@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -15,11 +16,11 @@ import java.util.List;
 import comapps.com.theblindbutcherdallas.R;
 
 
-public class MenuListViewAdapter extends BaseAdapter {
+class MenuListViewAdapter extends BaseAdapter {
 
 
-    Context context;
-    List<MenuListObject> menuObject;
+    private final Context context;
+    private final List<MenuListObject> menuObject;
 
 
     public MenuListViewAdapter(Context context, List<MenuListObject> menuObject) {
@@ -59,6 +60,7 @@ public class MenuListViewAdapter extends BaseAdapter {
             holder.item = (TextView) view.findViewById(R.id.itemTxt);
             holder.price = (TextView) view.findViewById(R.id.priceTxt);
             holder.description = (TextView) view.findViewById(R.id.descriptionTxt);
+            holder.dot = (ImageView) view.findViewById(R.id.dotSeparator);
 
             view.setTag(holder);
         } else {
@@ -112,6 +114,10 @@ public class MenuListViewAdapter extends BaseAdapter {
 
         }
 
+        if ( position == (getCount() - 1)) {
+            holder.dot.setVisibility(View.INVISIBLE);
+        }
+
 
         return view;
 
@@ -123,6 +129,7 @@ public class MenuListViewAdapter extends BaseAdapter {
         TextView item;
         TextView price;
         TextView description;
+        ImageView dot;
 
 
 

@@ -25,9 +25,9 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
-        android:textSize="72sp"
+        android:textSize="100dp"
         android:onClick="drinkslist"
-        android:textStyle="bold"/>
+        android:textStyle="italic"/>
 
     <Button
         android:layout_width="match_parent"
@@ -37,9 +37,9 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
-        android:textSize="72sp"
+        android:textSize="100dp"
         android:onClick="menulist"
-        android:textStyle="bold"/>
+        android:textStyle="italic"/>
 
     <LinearLayout
         android:orientation="horizontal"

@@ -18,11 +18,11 @@ import java.util.List;
 /**
  * Created by me on 11/7/2015.
  */
-public class ReviewListViewAdapter extends BaseAdapter {
+class ReviewListViewAdapter extends BaseAdapter {
 
 
-    Context context;
-    List<ReviewListObject> reviewObject;
+    private final Context context;
+    private final List<ReviewListObject> reviewObject;
 
 
     public ReviewListViewAdapter(Context context, List<ReviewListObject> reviewObject) {

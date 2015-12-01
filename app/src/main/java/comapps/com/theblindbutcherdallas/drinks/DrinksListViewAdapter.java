@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,11 +16,11 @@ import java.util.List;
 import comapps.com.theblindbutcherdallas.R;
 
 
-public class DrinksListViewAdapter extends BaseAdapter {
+class DrinksListViewAdapter extends BaseAdapter {
 
 
-    Context context;
-    List<DrinkListObject> drinkObject;
+    private final Context context;
+    private final List<DrinkListObject> drinkObject;
 
 
     public DrinksListViewAdapter(Context context, List<DrinkListObject> drinkObject) {
@@ -62,6 +63,7 @@ public class DrinksListViewAdapter extends BaseAdapter {
             holder.drinkabv = (TextView) view.findViewById(R.id.abvTxt);
             holder.drinkprice = (TextView) view.findViewById(R.id.priceTxt);
             holder.abvlayout = (LinearLayout) view.findViewById(R.id.abvLayout);
+            holder.dot = (ImageView) view.findViewById(R.id.dotSeparator);
 
             //holder.beerimage = (ImageView) view.findViewById(R.id.beerimage);
 
@@ -126,6 +128,11 @@ public class DrinksListViewAdapter extends BaseAdapter {
 
       //  Picasso.with(context).load(object.getBeerImage()).resize(200, 400).into(holder.beerimage);
 
+        if ( position == (getCount() - 1)) {
+            holder.dot.setVisibility(View.INVISIBLE);
+        }
+
+
         return view;
 
 
@@ -138,6 +145,7 @@ public class DrinksListViewAdapter extends BaseAdapter {
         TextView drinkprice;
         TextView abvlabel;
         LinearLayout abvlayout;
+        ImageView dot;
     }
 
 

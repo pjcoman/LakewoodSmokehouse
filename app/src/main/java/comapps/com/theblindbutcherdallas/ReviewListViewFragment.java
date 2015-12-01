@@ -25,7 +25,7 @@ public class ReviewListViewFragment extends ListFragment {
 
 
     private List<ReviewListObject> reviewObject;
-    ReviewListViewAdapter adapter;
+    private ReviewListViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

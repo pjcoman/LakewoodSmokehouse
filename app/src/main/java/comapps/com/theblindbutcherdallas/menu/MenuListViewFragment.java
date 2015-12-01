@@ -26,7 +26,7 @@ public class MenuListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
     private List<MenuListObject> menuObject;
-    MenuListViewAdapter adapter;
+    private MenuListViewAdapter adapter;
 
     public MenuListViewFragment() {
 
@@ -108,7 +108,7 @@ public class MenuListViewFragment extends ListFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getListView().setDivider(new ColorDrawable(Color.BLACK));
-        getListView().setDividerHeight(5);
+        getListView().setDividerHeight(0);
     }
 }
 

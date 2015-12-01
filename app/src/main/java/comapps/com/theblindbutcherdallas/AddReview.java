@@ -17,10 +17,9 @@ import com.parse.ParseObject;
  * Created by me on 11/7/2015.
  */
 public class AddReview extends Activity {
-    TextView reviewName;
-    RatingBar ratingBar;
-    TextView reviewText;
-    String ratingString;
+    private TextView reviewName;
+    private RatingBar ratingBar;
+    private TextView reviewText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

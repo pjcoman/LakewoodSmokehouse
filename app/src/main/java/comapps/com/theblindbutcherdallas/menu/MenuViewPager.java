@@ -30,7 +30,7 @@ import comapps.com.theblindbutcherdallas.R;
 public class MenuViewPager extends AppCompatActivity {
 
 
-    ViewPager viewPager = null;
+    private ViewPager viewPager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class MenuViewPager extends AppCompatActivity {
 
 
         Typeface tf = Typeface.createFromAsset(this.getAssets(),
-                "fonts/Garamond-Premier-Pro_19595.ttf");
+                "fonts/MerriweatherSans-Light.ttf");
 
 
         for (int i = 0; i < pts.getChildCount(); i++) {
@@ -109,7 +109,9 @@ public class MenuViewPager extends AppCompatActivity {
 
                 if (position == i) {
 
-                    SpannableStringBuilder sb = new SpannableStringBuilder(" " + menuGroups.get(i)); // space added before text for convenience
+
+
+                    SpannableStringBuilder sb = new SpannableStringBuilder(" " + menuGroups.get(i).toLowerCase()); // space added before text for convenience
                     return sb;
                 }
             }
@@ -117,7 +119,7 @@ public class MenuViewPager extends AppCompatActivity {
         }
     }
 
-    public static ArrayList<String> getMenuGroups()    {
+    private static ArrayList<String> getMenuGroups()    {
 
         List<ParseObject> ob;
 
@@ -126,8 +128,8 @@ public class MenuViewPager extends AppCompatActivity {
         try {
             // Locate the class table named "stansbeers" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                    "theblindbutchermenugroups").fromLocalDatastore();
-            query.orderByAscending("sort");
+                    "theblindbutchergroups").fromLocalDatastore();
+            query.orderByAscending("sort").whereEqualTo("type", "EATS");
             ob = query.find();
 
 

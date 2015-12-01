@@ -27,9 +27,8 @@ public class DrinksListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
 
-    int x = 0;
     private List<DrinkListObject> drinkObject;
-    DrinksListViewAdapter adapter;
+    private DrinksListViewAdapter adapter;
 
     public DrinksListViewFragment() {
 
@@ -107,7 +106,7 @@ public class DrinksListViewFragment extends ListFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getListView().setDivider(new ColorDrawable(Color.BLACK));
-        getListView().setDividerHeight(5);
+        getListView().setDividerHeight(0);
     }
 
 

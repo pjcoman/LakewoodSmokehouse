@@ -107,39 +107,23 @@ public class ParseApplication extends Application implements BootstrapNotifier {
             }
         });
 
-        ParseQuery<ParseObject> queryDrinkGroups = new ParseQuery<>(
-                "theblindbutcherdrinkgroups");
+        ParseQuery<ParseObject> queryGroups = new ParseQuery<>(
+                "theblindbutchergroups");
         // Locate the column named "day" in Parse.com and order list
         // by ascending
 
-        queryDrinkGroups.findInBackground(new FindCallback<ParseObject>() {
+        queryGroups.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutcherdrinkgroups", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("theblindbutchergroups", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutcherdrinkgroups", object);
+                        ParseObject.pinAllInBackground("theblindbutchergroups", object);
                     }
                 });
             }
         });
 
-        ParseQuery<ParseObject> queryMenuGroups = new ParseQuery<>(
-                "theblindbutchermenugroups");
-        // Locate the column named "day" in Parse.com and order list
-        // by ascending
-
-        queryMenuGroups.findInBackground(new FindCallback<ParseObject>() {
-            public void done(final List<ParseObject> object, ParseException e) {
-                // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutchermenugroups", new DeleteCallback() {
-                    public void done(ParseException e) {
-                        // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutchermenugroups", object);
-                    }
-                });
-            }
-        });
 
 
         Log.d(TAG, "App started up");
@@ -157,7 +141,7 @@ public class ParseApplication extends Application implements BootstrapNotifier {
 
         regionBootstrap = new RegionBootstrap(this, region);
 
-        beaconManager.setDebug(true);
+        BeaconManager.setDebug(true);
 
 
 

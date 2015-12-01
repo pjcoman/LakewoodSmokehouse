@@ -1,6 +1,6 @@
 package comapps.com.theblindbutcherdallas.drinks;
 
-public class DrinkListObject {
+class DrinkListObject {
 
     private String drinkname;
     private Double drinkabv;
@@ -24,10 +24,6 @@ public class DrinkListObject {
 
     public void setDrinkAbv(Double drinkabv) {
         this.drinkabv = drinkabv;
-    }
-
-    public String getDrinkGroup() {
-        return drinkgroup;
     }
 
     public void setDrinkGroup(String drinkgroup) {

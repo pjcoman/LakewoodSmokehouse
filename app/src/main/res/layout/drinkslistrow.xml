@@ -7,7 +7,7 @@
               android:clickable="false"
               android:orientation="vertical"
               android:weightSum="2"
-              android:padding="20dp"
+              android:padding="10dp"
               android:background="@android:color/transparent">
 
 
@@ -18,7 +18,7 @@
             android:gravity="center_horizontal"
             android:text="name of beer"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="26sp"
             android:textStyle="bold"/>
 
     <LinearLayout
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:text="abv"
             android:paddingLeft="2dp"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:text="8.0"
             android:paddingLeft="2dp"
@@ -61,8 +61,16 @@
             android:gravity="center"
             android:text="$5.00"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="26sp"
             android:textStyle="bold|italic"/>
 
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/dotSeparator"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/blackdot"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>
