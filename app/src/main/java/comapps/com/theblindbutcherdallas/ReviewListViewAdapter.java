@@ -81,7 +81,7 @@ class ReviewListViewAdapter extends BaseAdapter {
 
         holder.review.setText(object.getReview());
 
-        Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/MerriweatherSans-Light.ttf");
+        Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/MerriweatherSans-Italic.ttf");
         holder.name.setTypeface(font);
         holder.review.setTypeface(font);
 

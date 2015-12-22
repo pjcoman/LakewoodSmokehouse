@@ -1,6 +1,11 @@
 package comapps.com.theblindbutcherdallas.menu;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,10 +32,13 @@ import comapps.com.theblindbutcherdallas.R;
 /**
  * Created by me on 10/6/2015.
  */
-public class MenuViewPager extends AppCompatActivity {
+public class MenuViewPager extends AppCompatActivity implements SensorEventListener {
 
 
     private ViewPager viewPager = null;
+
+    private Sensor mySensor;
+    private SensorManager SM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,10 @@ public class MenuViewPager extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main_viewpager_menu);
+
+        SM = (SensorManager)getSystemService(SENSOR_SERVICE);
+        mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         String idOfSendingActivity = getIntent().getStringExtra("activityId");
 
@@ -49,13 +61,14 @@ public class MenuViewPager extends AppCompatActivity {
         PagerTitleStripV22 pts = (PagerTitleStripV22) findViewById(R.id.title);
 
         pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        pts.setTextColor(Color.parseColor("#000000"));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
 
 
         Typeface tf = Typeface.createFromAsset(this.getAssets(),
-                "fonts/MerriweatherSans-Light.ttf");
+                "fonts/MerriweatherSans-Italic.ttf");
 
 
         for (int i = 0; i < pts.getChildCount(); i++) {
@@ -69,8 +82,28 @@ public class MenuViewPager extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
 
+        Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
+        Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
 
+        if ( event.values[0] > 5 ) {
+
+            Log.d("Sensor value X is ", String.valueOf(event.values[0]));
+
+            finish();
+
+            overridePendingTransition(R.anim.pushinfromright, R.anim.pushouttoleft);
+
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
 
 
     class MyAdapter extends FragmentStatePagerAdapter {
@@ -110,9 +143,7 @@ public class MenuViewPager extends AppCompatActivity {
                 if (position == i) {
 
 
-
-                    SpannableStringBuilder sb = new SpannableStringBuilder(" " + menuGroups.get(i).toLowerCase()); // space added before text for convenience
-                    return sb;
+                    return new SpannableStringBuilder(" " + menuGroups.get(i).toLowerCase());
                 }
             }
             return null;
@@ -126,8 +157,8 @@ public class MenuViewPager extends AppCompatActivity {
         ArrayList<String> menuGroups = new ArrayList<>();
 
         try {
-            // Locate the class table named "stansbeers" in Parse.com
-            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+
+            ParseQuery<ParseObject> query = new ParseQuery<>(
                     "theblindbutchergroups").fromLocalDatastore();
             query.orderByAscending("sort").whereEqualTo("type", "EATS");
             ob = query.find();

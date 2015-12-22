@@ -50,6 +50,7 @@
     <activity
         android:name=".drinks.DrinksViewPager"
         android:theme="@style/AppTheme"
+        android:screenOrientation="portrait"
 
         />
 
@@ -58,6 +59,7 @@
     <activity
         android:name=".menu.MenuViewPager"
         android:theme="@style/AppTheme"
+        android:screenOrientation="portrait"
 
         />
 

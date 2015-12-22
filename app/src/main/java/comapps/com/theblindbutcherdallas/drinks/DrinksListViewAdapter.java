@@ -98,7 +98,7 @@ class DrinksListViewAdapter extends BaseAdapter {
         if ( object.getDrinkPrice() == null ) {
             tempPrice = " ";
         } else {
-            tempPrice = (object.getDrinkPrice().toString());
+            tempPrice = (object.getDrinkPrice());
         }
 
 

@@ -51,7 +51,7 @@ public class AddReview extends Activity {
                     review.saveInBackground();
 
                     Toast.makeText(getApplicationContext(), "New review added", Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
+                } catch (Exception ignored) {
 
                 }
             }

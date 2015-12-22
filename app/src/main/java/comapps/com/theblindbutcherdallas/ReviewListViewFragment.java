@@ -43,7 +43,7 @@ public class ReviewListViewFragment extends ListFragment {
 
         try {
             // Locate the class table named "stansbeers" in Parse.com
-            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+            ParseQuery<ParseObject> query = new ParseQuery<>(
                     "theblindbutcherreviews").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending

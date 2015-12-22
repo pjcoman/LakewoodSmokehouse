@@ -77,9 +77,7 @@ public class DrinksListViewFragment extends ListFragment {
             drinkObject = new ArrayList<>();
 
             for (ParseObject drinks : ob) {
-                // Locate images in flag column
 
-                //  ParseFile image = (ParseFile) stansbeers.get("image");
 
                 DrinkListObject drink = new DrinkListObject();
                 drink.setDrinkName((String) drinks.get("item"));

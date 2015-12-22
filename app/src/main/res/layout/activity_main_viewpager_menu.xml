@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/title"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/white"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:layout_gravity="top"
