@@ -7,10 +7,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.TransitionManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.widget.Button;
 
 import comapps.com.theblindbutcherdallas.drinks.DrinksViewPager;
@@ -23,6 +29,8 @@ public class MainActivity extends AppCompatActivity  {
     private ViewGroup mRoot;
     private Button drinkButton;
     private Button eatButton;
+    private Button addReviewButton;
+    private Button readReviewButton;
 
 
 
@@ -40,9 +48,59 @@ public class MainActivity extends AppCompatActivity  {
 
         setContentView(R.layout.activity_main);
 
+
         mRoot = (ViewGroup) findViewById(R.id.container_a);
         drinkButton = (Button) findViewById(R.id.drinkbutton);
         eatButton = (Button) findViewById(R.id.eatbutton);
+        addReviewButton = (Button) findViewById(R.id.button_add);
+        readReviewButton = (Button) findViewById(R.id.button_read);
+
+        Animation fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeIn.setDuration(500);
+
+        Animation fadeInButtons = new AlphaAnimation(0, 1);
+        fadeInButtons.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeInButtons.setDuration(250);
+        fadeInButtons.setStartOffset(500);
+
+        Animation fadeInButtons2 = new AlphaAnimation(0, 1);
+        fadeInButtons2.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeInButtons2.setDuration(250);
+        fadeInButtons2.setStartOffset(750);
+
+        Animation fadeInButtons3 = new AlphaAnimation(0, 1);
+        fadeInButtons3.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeInButtons3.setDuration(250);
+        fadeInButtons3.setStartOffset(1000);
+
+        Animation fadeInButtons4 = new AlphaAnimation(0, 1);
+        fadeInButtons4.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeInButtons4.setDuration(250);
+        fadeInButtons4.setStartOffset(1250);
+
+
+        AnimationSet animation = new AnimationSet(false); //change to false
+        animation.addAnimation(fadeIn);
+
+        AnimationSet animationButtons = new AnimationSet(false); //change to false
+        animationButtons.addAnimation(fadeInButtons);
+        AnimationSet animationButtons2 = new AnimationSet(false); //change to false
+        animationButtons2.addAnimation(fadeInButtons2);
+        AnimationSet animationButtons3 = new AnimationSet(false); //change to false
+        animationButtons3.addAnimation(fadeInButtons3);
+        AnimationSet animationButtons4 = new AnimationSet(false); //change to false
+        animationButtons4.addAnimation(fadeInButtons4);
+
+        mRoot.startAnimation(animation);
+
+
+        drinkButton.startAnimation(animationButtons);
+        eatButton.startAnimation(animationButtons2);
+        addReviewButton.startAnimation(animationButtons3);
+        readReviewButton.startAnimation(animationButtons4);
+
+        //   setupWindowAnimations();
 
 
 
@@ -200,6 +258,23 @@ public class MainActivity extends AppCompatActivity  {
 
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
 
+    }
+
+    private void setupWindowAnimations() {
+        Fade fade = new Fade();
+        fade.setDuration(3000);
+        TransitionManager.beginDelayedTransition(mRoot, fade);
+        toggleVisibility(mRoot, drinkButton, eatButton, addReviewButton, readReviewButton);
+
+
+    }
+
+    public void toggleVisibility(View... views) {
+        for (View current : views) {
+            if (current.getVisibility() != View.VISIBLE) {
+                current.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 

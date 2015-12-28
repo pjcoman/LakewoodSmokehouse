@@ -3,6 +3,9 @@ package comapps.com.theblindbutcherdallas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Fade;
+import android.transition.TransitionInflater;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -12,11 +15,16 @@ import android.widget.ImageView;
  */
 public class Splash extends AppCompatActivity implements Animation.AnimationListener  {
 
+    private ViewGroup mRoot;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+
+        setupWindowAnimations();
+
+        mRoot = (ViewGroup) findViewById(R.id.splash);
 
         Animation a = AnimationUtils
                 .loadAnimation(this, R.anim.startanimation);
@@ -33,15 +41,10 @@ public class Splash extends AppCompatActivity implements Animation.AnimationList
     public void onAnimationEnd(Animation animation) {
 
 
-
-        //  overridePendingTransition(R.anim.fadeinanimation, 0);
-
-        //  Start2.this.overridePendingTransition(R.anim.fadeinanimation, 0);
-
-
-
         Intent mainIntent = new Intent().setClass(Splash.this,
                 MainActivity.class);
+
+        setupWindowAnimations();
 
         startActivity(mainIntent);
 
@@ -50,6 +53,13 @@ public class Splash extends AppCompatActivity implements Animation.AnimationList
         // TODO Auto-generated method stub
 
     }
+
+    private void setupWindowAnimations() {
+        Fade fade = (Fade) TransitionInflater.from(this).inflateTransition(R.transition.transistionfade);
+        getWindow().setEnterTransition(fade);
+    }
+
+
 
     @Override
     public void onAnimationRepeat(Animation animation) {

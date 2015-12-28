@@ -8,8 +8,8 @@ android {
         applicationId "comapps.com.theblindbutcherdallas"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 7
-        versionName "1.6"
+        versionCode 9
+        versionName "1.8"
     }
     buildTypes {
         release {

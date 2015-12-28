@@ -88,7 +88,7 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
         Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
         Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
 
-        if ( event.values[0] > 5 ) {
+        if (event.values[2] > 10) {
 
             Log.d("Sensor value X is ", String.valueOf(event.values[0]));
 
