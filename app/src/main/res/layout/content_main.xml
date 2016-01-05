@@ -32,10 +32,7 @@
             android:id="@+id/drinkbutton"
             android:layout_weight="1"
             android:background="@drawable/bbdrink"
-            android:textColor="@android:color/white"
-            android:textSize="80sp"
             android:onClick="drinkslist"
-            android:textStyle="italic"
             android:gravity="center_vertical|center_horizontal"
             android:layout_margin="20dp"/>
 
@@ -45,10 +42,7 @@
             android:id="@+id/eatbutton"
             android:layout_weight="1"
             android:background="@drawable/bbeat"
-            android:textColor="@android:color/white"
-            android:textSize="80sp"
             android:onClick="menulist"
-            android:textStyle="italic"
             android:gravity="center_vertical|center_horizontal"
             android:layout_margin="20dp"/>
     </LinearLayout>

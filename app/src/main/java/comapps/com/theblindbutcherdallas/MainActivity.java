@@ -17,6 +17,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import comapps.com.theblindbutcherdallas.drinks.DrinksViewPager;
@@ -61,23 +62,23 @@ public class MainActivity extends AppCompatActivity  {
 
         Animation fadeInButtons = new AlphaAnimation(0, 1);
         fadeInButtons.setInterpolator(new AccelerateInterpolator()); //add this
-        fadeInButtons.setDuration(250);
+        fadeInButtons.setDuration(100);
         fadeInButtons.setStartOffset(500);
 
         Animation fadeInButtons2 = new AlphaAnimation(0, 1);
         fadeInButtons2.setInterpolator(new AccelerateInterpolator()); //add this
-        fadeInButtons2.setDuration(250);
-        fadeInButtons2.setStartOffset(750);
+        fadeInButtons2.setDuration(100);
+        fadeInButtons2.setStartOffset(600);
 
         Animation fadeInButtons3 = new AlphaAnimation(0, 1);
         fadeInButtons3.setInterpolator(new AccelerateInterpolator()); //add this
-        fadeInButtons3.setDuration(250);
-        fadeInButtons3.setStartOffset(1000);
+        fadeInButtons3.setDuration(100);
+        fadeInButtons3.setStartOffset(700);
 
         Animation fadeInButtons4 = new AlphaAnimation(0, 1);
         fadeInButtons4.setInterpolator(new AccelerateInterpolator()); //add this
-        fadeInButtons4.setDuration(250);
-        fadeInButtons4.setStartOffset(1250);
+        fadeInButtons4.setDuration(100);
+        fadeInButtons4.setStartOffset(800);
 
 
         AnimationSet animation = new AnimationSet(false); //change to false
@@ -100,8 +101,8 @@ public class MainActivity extends AppCompatActivity  {
         addReviewButton.startAnimation(animationButtons3);
         readReviewButton.startAnimation(animationButtons4);
 
-        //   setupWindowAnimations();
 
+        //   setupWindowAnimations();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -210,34 +211,75 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-
-    public void menulist(View v) {
-
-        Intent intentMeals = new Intent();
-        intentMeals.setClass(MainActivity.this, MenuViewPager.class);
-        intentMeals.putExtra("activityId", "meals");
-        startActivity(intentMeals);
-        overridePendingTransition(R.anim.pushinfromleft,
-                R.anim.pushouttoright);
-
-
-    }
-
     public void drinkslist(View v) {
 
-        Intent intentDrinks = new Intent();
-        intentDrinks.setClass(this, DrinksViewPager.class);
-        intentDrinks.putExtra("activityId", "drinks");
-        startActivity(intentDrinks);
-        overridePendingTransition(R.anim.pushinfromright,
-                R.anim.pushouttoleft);
+        Animation animationXpos = new TranslateAnimation(0, 100, 0, 0);
+        animationXpos.setDuration(500);
+        //  animationXpos.setRepeatMode(Animation.REVERSE);
+        drinkButton.startAnimation(animationXpos);
+
+        animationXpos.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                Intent intentDrinks = new Intent();
+                intentDrinks.setClass(MainActivity.this, DrinksViewPager.class);
+                intentDrinks.putExtra("activityId", "drinks");
+                startActivity(intentDrinks);
+                overridePendingTransition(R.anim.pushinfromright,
+                        R.anim.pushouttoleft);
+
+            }
+        });
     }
+
+
+    public void menulist(View v) {
+        Animation animationXpos = new TranslateAnimation(0, -100, 0, 0);
+        animationXpos.setDuration(500);
+        //   animationXpos.setRepeatMode(Animation.REVERSE);
+        eatButton.startAnimation(animationXpos);
+
+        animationXpos.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                Intent intentMeals = new Intent();
+                intentMeals.setClass(MainActivity.this, MenuViewPager.class);
+                intentMeals.putExtra("activityId", "meals");
+                startActivity(intentMeals);
+                overridePendingTransition(R.anim.pushinfromleft,
+                        R.anim.pushouttoright);
+
+            }
+        });
+
+
+    }
+
 
     public void addReview(View v) {
 
         Intent intentAddReview = new Intent();
         intentAddReview.setClass(this, AddReview.class);
-
         startActivity(intentAddReview);
     }
 
@@ -246,7 +288,6 @@ public class MainActivity extends AppCompatActivity  {
 
         Intent intentReviews = new Intent();
         intentReviews.setClass(this, GetReviews.class);
-
         startActivity(intentReviews);
     }
 
@@ -262,7 +303,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private void setupWindowAnimations() {
         Fade fade = new Fade();
-        fade.setDuration(3000);
+        fade.setDuration(1000);
         TransitionManager.beginDelayedTransition(mRoot, fade);
         toggleVisibility(mRoot, drinkButton, eatButton, addReviewButton, readReviewButton);
 
@@ -277,10 +318,13 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
 
-
-
-
+        setupWindowAnimations();
+    }
+    
     @Override
     public void onBackPressed() {
         // TODO Auto-generated method stub
