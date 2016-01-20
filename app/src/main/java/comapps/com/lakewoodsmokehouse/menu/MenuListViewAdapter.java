@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas.menu;
+package comapps.com.lakewoodsmokehouse.menu;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 class MenuListViewAdapter extends BaseAdapter {

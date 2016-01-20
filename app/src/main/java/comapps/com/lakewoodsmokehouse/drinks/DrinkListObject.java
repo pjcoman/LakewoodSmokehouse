@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas.drinks;
+package comapps.com.lakewoodsmokehouse.drinks;
 
 class DrinkListObject {
 
@@ -6,6 +6,7 @@ class DrinkListObject {
     private Double drinkabv;
     private String drinkgroup;
     private String drinkprice;
+    private Integer drinkIBU;
 
 
 
@@ -38,12 +39,23 @@ class DrinkListObject {
         this.drinkprice = drinkprice;
     }
 
+    public Integer getDrinkIBU() {
+        return drinkIBU;
+    }
+
+    public void setDrinkIBU(Integer drinkIBU) {
+        this.drinkIBU = drinkIBU;
+    }
+
 
 
     @Override
     public String toString() {
-        return "DrinkList [drinkname=" + drinkname + ", drinkabv=" + drinkabv.toString() +
-                ", drinkgroup=" + drinkgroup + ", drinkprice=" + drinkprice + ", beerabout=" + "]";
+        return "DrinkList [drinkname=" + drinkname +
+                ", drinkabv=" + drinkabv.toString() +
+                ", drinkgroup=" + drinkgroup +
+                ", drinkprice=" + drinkprice +
+                ", drinkIBU=" + drinkIBU.toString() + "]";
     }
 
 

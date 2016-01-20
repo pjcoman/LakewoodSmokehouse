@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas.drinks;
+package comapps.com.lakewoodsmokehouse.drinks;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -26,7 +26,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 /**
@@ -61,15 +61,15 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         PagerTitleStripV22 pts = (PagerTitleStripV22) findViewById(R.id.title);
-        pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        pts.setTextColor(Color.parseColor("#000000"));
+        pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+        pts.setTextColor(Color.parseColor("#e00025"));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
 
 
         Typeface tf = Typeface.createFromAsset(this.getAssets(),
-                "fonts/MerriweatherSans-Italic.ttf");
+                "fonts/MerriweatherSans-Regular.ttf");
 
 
         for (int i = 0; i < pts.getChildCount(); i++) {
@@ -140,10 +140,10 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
                 if (position == i) {
 
-                    drinkGroups.set(i, drinkGroups.get(i).replace("IMPORTED BOMBERS", "JIHADIS"));
-                    drinkGroups.set(i, drinkGroups.get(i).replace("DOMESTIC BOMBERS", "MCVEIGHS"));
+                 //   drinkGroups.set(i, drinkGroups.get(i).replace("IMPORTED BOMBERS", "JIHADIS"));
+                 //   drinkGroups.set(i, drinkGroups.get(i).replace("DOMESTIC BOMBERS", "MCVEIGHS"));
 
-                    return new SpannableStringBuilder(" " + drinkGroups.get(i).toLowerCase());
+                    return new SpannableStringBuilder(" " + drinkGroups.get(i));
                 }
             }
             return null;
@@ -162,7 +162,7 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
         try {
             // Locate the class table named "stansbeers" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "theblindbutchergroups").fromLocalDatastore();
+                    "ls_groups").fromLocalDatastore();
             query.orderByAscending("sort").whereEqualTo("type", "DRINK");
             ob = query.find();
 

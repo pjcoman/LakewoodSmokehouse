@@ -1,8 +1,9 @@
-package comapps.com.theblindbutcherdallas.drinks;
+package comapps.com.lakewoodsmokehouse.drinks;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 class DrinksListViewAdapter extends BaseAdapter {
@@ -63,7 +64,9 @@ class DrinksListViewAdapter extends BaseAdapter {
             holder.drinkabv = (TextView) view.findViewById(R.id.abvTxt);
             holder.drinkprice = (TextView) view.findViewById(R.id.priceTxt);
             holder.abvlayout = (LinearLayout) view.findViewById(R.id.abvLayout);
+            holder.drinkIBU = (TextView) view.findViewById(R.id.IBUTxt);
             holder.dot = (ImageView) view.findViewById(R.id.dotSeparator);
+            holder.drinkIBUTV = (TextView) view.findViewById(R.id.IBUTxtlabel);
 
             //holder.beerimage = (ImageView) view.findViewById(R.id.beerimage);
 
@@ -109,11 +112,28 @@ class DrinksListViewAdapter extends BaseAdapter {
             holder.drinkprice.setVisibility(View.VISIBLE);
         }
 
+        String tempIBU;
+
+
+        if ( object.getDrinkIBU() == null ) {
+            Log.i("LOGTAG", "IBU is null");
+            tempIBU = "00";
+        } else {
+            tempIBU = (object.getDrinkIBU().toString());
+        }
+
+        if ( tempIBU == "00") {
+            holder.drinkIBU.setVisibility(View.GONE);
+            holder.drinkIBUTV.setVisibility(View.GONE);
+
+        } else {
+            holder.drinkIBU.setVisibility(View.VISIBLE);
+            holder.drinkIBUTV.setVisibility(View.VISIBLE);
+        }
 
 
 
-
-
+        holder.drinkIBU.setText(tempIBU);
         holder.drinkname.setText(object.getDrinkName());
         holder.drinkabv.setText(tempAbv);
         holder.drinkprice.setText(tempPrice);
@@ -125,6 +145,8 @@ class DrinksListViewAdapter extends BaseAdapter {
         holder.drinkabv.setTypeface(font);
         holder.drinkprice.setTypeface(font);
         holder.abvlabel.setTypeface(font);
+        holder.drinkIBU.setTypeface(font);
+        holder.drinkIBUTV.setTypeface(font);
 
       //  Picasso.with(context).load(object.getBeerImage()).resize(200, 400).into(holder.beerimage);
 
@@ -144,6 +166,8 @@ class DrinksListViewAdapter extends BaseAdapter {
         TextView drinkabv;
         TextView drinkprice;
         TextView abvlabel;
+        TextView drinkIBU;
+        TextView drinkIBUTV;
         LinearLayout abvlayout;
         ImageView dot;
     }

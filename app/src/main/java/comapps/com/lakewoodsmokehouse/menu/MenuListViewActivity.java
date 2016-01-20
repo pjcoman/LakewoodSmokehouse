@@ -1,9 +1,9 @@
-package comapps.com.theblindbutcherdallas.menu;
+package comapps.com.lakewoodsmokehouse.menu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 public class MenuListViewActivity extends AppCompatActivity {

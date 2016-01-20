@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:id="@+id/abvLayout">
+        android:id="@+id/abvLayout"
+        android:background="@android:color/white">
 
 
     <TextView
@@ -35,13 +36,34 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="26sp"
-            android:textStyle="bold"
+            android:textStyle="bold|normal"
             android:text="abv"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"/>
 
         <TextView
             android:id="@+id/abvTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:text="8.0"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <TextView
+            android:id="@+id/IBUTxtlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+            android:text="IBU"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <TextView
+            android:id="@+id/IBUTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"

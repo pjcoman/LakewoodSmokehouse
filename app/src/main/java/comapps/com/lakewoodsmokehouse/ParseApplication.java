@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas;
+package comapps.com.lakewoodsmokehouse;
 
 import android.app.Application;
 import android.content.Intent;
@@ -57,68 +57,68 @@ public class ParseApplication extends Application implements BootstrapNotifier {
 
 
         ParseQuery<ParseObject> queryDrinks = new ParseQuery<>(
-                "theblindbutcherdrinks");
+                "lw_smokehousedrinks");
         queryDrinks.setLimit(200);
 
 
         queryDrinks.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutcherdrinks", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("lw_smokehousedrinks", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutcherdrinks", object);
+                        ParseObject.pinAllInBackground("lw_smokehousedrinks", object);
                     }
                 });
             }
         });
 
         ParseQuery<ParseObject> queryMenu = new ParseQuery<>(
-                "theblindbutchermenu");
+                "ls_menu");
         // Locate the column named "day" in Parse.com and order list
         // by ascending
 
         queryMenu.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutchermenu", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("ls_menu", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutchermenu", object);
+                        ParseObject.pinAllInBackground("ls_menu", object);
                     }
                 });
             }
         });
 
         ParseQuery<ParseObject> queryReviews = new ParseQuery<>(
-                "theblindbutcherreviews");
+                "ls_reviews");
         // Locate the column named "day" in Parse.com and order list
         // by ascending
 
         queryReviews.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutcherreviews", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("ls_reviews", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutcherreviews", object);
+                        ParseObject.pinAllInBackground("ls_reviews", object);
                     }
                 });
             }
         });
 
         ParseQuery<ParseObject> queryGroups = new ParseQuery<>(
-                "theblindbutchergroups");
+                "ls_groups");
         // Locate the column named "day" in Parse.com and order list
         // by ascending
 
         queryGroups.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("theblindbutchergroups", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("ls_groups", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("theblindbutchergroups", object);
+                        ParseObject.pinAllInBackground("ls_groups", object);
                     }
                 });
             }
@@ -136,7 +136,7 @@ public class ParseApplication extends Application implements BootstrapNotifier {
 
         String blueUUID = "b7d1027d-6788-416e-994f-ea11075f1765";
 
-        Region region = new Region("comapps.com.theblindbutcherdallas", Identifier.parse(blueUUID), null, null);
+        Region region = new Region("comapps.com.lakewoodsmokehouse", Identifier.parse(blueUUID), null, null);
 
 
         regionBootstrap = new RegionBootstrap(this, region);

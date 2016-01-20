@@ -92,18 +92,18 @@
             />
 
         <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/read_review"
-        android:id="@+id/button_read"
-        android:layout_weight="1"
-        android:textColor="@android:color/white"
-        android:background="@android:color/transparent"
-        android:onClick="readReview"
-        android:textAllCaps="false"
-        android:capitalize="words"
-        android:textSize="20sp"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/read_review"
+            android:id="@+id/button_read"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:onClick="readReview"
+            android:textAllCaps="false"
+            android:capitalize="words"
+            android:textSize="20sp"
             />
 
     </LinearLayout>

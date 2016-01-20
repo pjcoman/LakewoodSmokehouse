@@ -1,10 +1,10 @@
-package comapps.com.theblindbutcherdallas.drinks;
+package comapps.com.lakewoodsmokehouse.drinks;
 
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 public class DrinksListViewActivity extends AppCompatActivity {

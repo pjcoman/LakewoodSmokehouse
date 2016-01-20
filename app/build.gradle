@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.2'
 
     defaultConfig {
-        applicationId "comapps.com.theblindbutcherdallas"
+        applicationId "comapps.com.lakewoodsmokehouse"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 9

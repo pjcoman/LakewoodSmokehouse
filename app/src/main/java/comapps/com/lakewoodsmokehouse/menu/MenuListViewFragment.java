@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas.drinks;
+package comapps.com.lakewoodsmokehouse.menu;
 
 
 import android.graphics.Color;
@@ -17,25 +17,23 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import comapps.com.theblindbutcherdallas.R;
-
+import comapps.com.lakewoodsmokehouse.R;
 
 /**
  * Created by me on 9/29/2015.
  */
-public class DrinksListViewFragment extends ListFragment {
+public class MenuListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
+    private List<MenuListObject> menuObject;
+    private MenuListViewAdapter adapter;
 
-    private List<DrinkListObject> drinkObject;
-    private DrinksListViewAdapter adapter;
-
-    public DrinksListViewFragment() {
+    public MenuListViewFragment() {
 
     }
 
-    public static DrinksListViewFragment newInstance(int page) {
-        DrinksListViewFragment fragment = new DrinksListViewFragment();
+    public static MenuListViewFragment newInstance(int page) {
+        MenuListViewFragment fragment = new MenuListViewFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE_NUMBER, page);
         fragment.setArguments(args);
@@ -44,11 +42,14 @@ public class DrinksListViewFragment extends ListFragment {
         return fragment;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.drinklistfragment, null, false);
+
+
+        return inflater.inflate(R.layout.menulistfragment, null, false);
+
+
 
     }
 
@@ -63,41 +64,44 @@ public class DrinksListViewFragment extends ListFragment {
         try {
 
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "theblindbutcherdrinks").fromLocalDatastore();
+                    "theblindbutchermenu").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 
 
+
             query.orderByAscending("sort").whereEqualTo("groupsort", groupId);
+
 
             ob = query.find();
 
 
 
-            drinkObject = new ArrayList<>();
+            menuObject = new ArrayList<>();
 
-            for (ParseObject drinks : ob) {
+            for (ParseObject menu : ob) {
+                // Locate images in flag column
 
 
-                DrinkListObject drink = new DrinkListObject();
-                drink.setDrinkName((String) drinks.get("item"));
-                drink.setDrinkAbv(drinks.getDouble("abv"));
-                drink.setDrinkGroup((String) drinks.get("group"));
-                drink.setDrinkPrice((String) drinks.get("price"));
-                drinkObject.add(drink);
+                MenuListObject menuItem = new MenuListObject();
+                menuItem.setItem((String) menu.get("item"));
+                menuItem.setPrice((String) menu.get("price"));
+                menuItem.setGroup((String) menu.get("group"));
+                menuItem.setDescription((String) menu.get("description"));
+                menuObject.add(menuItem);
             }
+
 
         } catch (ParseException e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
 
-        adapter = new DrinksListViewAdapter(getActivity(), drinkObject);
+        adapter = new MenuListViewAdapter(getActivity(), menuObject);
         setListAdapter(adapter);
 
 
     }
-
 
 
     @Override
@@ -106,28 +110,7 @@ public class DrinksListViewFragment extends ListFragment {
         getListView().setDivider(new ColorDrawable(Color.BLACK));
         getListView().setDividerHeight(0);
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

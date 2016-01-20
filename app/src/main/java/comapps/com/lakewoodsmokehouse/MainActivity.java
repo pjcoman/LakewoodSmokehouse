@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas;
+package comapps.com.lakewoodsmokehouse;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -20,8 +20,8 @@ import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
-import comapps.com.theblindbutcherdallas.drinks.DrinksViewPager;
-import comapps.com.theblindbutcherdallas.menu.MenuViewPager;
+import comapps.com.lakewoodsmokehouse.drinks.DrinksViewPager;
+import comapps.com.lakewoodsmokehouse.menu.MenuViewPager;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private ViewGroup mRoot;
     private Button drinkButton;
+    private Button drinkButton2;
     private Button eatButton;
     private Button addReviewButton;
     private Button readReviewButton;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity  {
         mRoot = (ViewGroup) findViewById(R.id.container_a);
         drinkButton = (Button) findViewById(R.id.drinkbutton);
         eatButton = (Button) findViewById(R.id.eatbutton);
+        drinkButton2 = (Button) findViewById(R.id.drinkbutton2);
         addReviewButton = (Button) findViewById(R.id.button_add);
         readReviewButton = (Button) findViewById(R.id.button_read);
 
@@ -71,11 +73,16 @@ public class MainActivity extends AppCompatActivity  {
         fadeInButtons2.setStartOffset(600);
 
         Animation fadeInButtons3 = new AlphaAnimation(0, 1);
+        fadeInButtons2.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeInButtons2.setDuration(100);
+        fadeInButtons2.setStartOffset(600);
+
+        Animation fadeInButtons4 = new AlphaAnimation(0, 1);
         fadeInButtons3.setInterpolator(new AccelerateInterpolator()); //add this
         fadeInButtons3.setDuration(100);
         fadeInButtons3.setStartOffset(700);
 
-        Animation fadeInButtons4 = new AlphaAnimation(0, 1);
+        Animation fadeInButtons5 = new AlphaAnimation(0, 1);
         fadeInButtons4.setInterpolator(new AccelerateInterpolator()); //add this
         fadeInButtons4.setDuration(100);
         fadeInButtons4.setStartOffset(800);
@@ -92,14 +99,17 @@ public class MainActivity extends AppCompatActivity  {
         animationButtons3.addAnimation(fadeInButtons3);
         AnimationSet animationButtons4 = new AnimationSet(false); //change to false
         animationButtons4.addAnimation(fadeInButtons4);
+        AnimationSet animationButtons5 = new AnimationSet(false); //change to false
+        animationButtons5.addAnimation(fadeInButtons5);
 
         mRoot.startAnimation(animation);
 
 
         drinkButton.startAnimation(animationButtons);
         eatButton.startAnimation(animationButtons2);
-        addReviewButton.startAnimation(animationButtons3);
-        readReviewButton.startAnimation(animationButtons4);
+        drinkButton2.startAnimation(animationButtons3);
+        addReviewButton.startAnimation(animationButtons4);
+        readReviewButton.startAnimation(animationButtons5);
 
 
         //   setupWindowAnimations();
@@ -145,7 +155,7 @@ public class MainActivity extends AppCompatActivity  {
 
         if (id == R.id.action_settings) {
             Intent callIntent = new Intent(Intent.ACTION_VIEW);
-            callIntent.setData(Uri.parse("tel:2148870000"));
+            callIntent.setData(Uri.parse("tel:9726777906"));
             startActivity(callIntent);
 
             return true;
@@ -154,8 +164,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         if (id == R.id.action_settings2) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/dir/''/1919+Greenville+Ave,+Dallas,+TX+75206" +
-                    "/@32.8141255,-96.7726532,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x864e9f49d45f8155:0x6d15b5e3c59991b0!2m2!1d-96.7704645!2d32.8141255")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://goo.gl/maps/R4xMDMbp1vm")));
 
             return true;
         }
@@ -168,7 +177,7 @@ public class MainActivity extends AppCompatActivity  {
 
             try{
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/576657282362451"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/1027584667305709"));
                 startActivity(intent);
 
             }catch(Exception e){
@@ -184,7 +193,7 @@ public class MainActivity extends AppCompatActivity  {
 
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.instagram.android");
             intent.setComponent(new ComponentName("com.instagram.android", "com.instagram.android.activity.UrlHandlerActivity"));
-            intent.setData(Uri.parse("http://instagram.com/_u/blindbutchertx"));
+            intent.setData(Uri.parse("http://instagram.com/_u/lakewoodsmokehouse"));
             startActivity(intent);
 
             return true;
@@ -192,7 +201,7 @@ public class MainActivity extends AppCompatActivity  {
 
         if (id == R.id.action_settings5) {
             Intent intent;
-            String username = "blindbutcherdal";
+            String username = "lakewood_bbq";
             try {
                 // get the Twitter app if possible
                 this.getPackageManager().getPackageInfo("com.twitter.android", 0);
@@ -200,7 +209,7 @@ public class MainActivity extends AppCompatActivity  {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             } catch (Exception e) {
                 // no Twitter app, revert to browser
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/blindbutcherdal"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/lakewood_bbq"));
             }
             this.startActivity(intent);
             return true;
@@ -213,7 +222,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public void drinkslist(View v) {
 
-        Animation animationXpos = new TranslateAnimation(0, 100, 0, 0);
+        Animation animationXpos = new TranslateAnimation(0, 300, 0, 0);
         animationXpos.setDuration(500);
         //  animationXpos.setRepeatMode(Animation.REVERSE);
         drinkButton.startAnimation(animationXpos);
@@ -244,7 +253,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
     public void menulist(View v) {
-        Animation animationXpos = new TranslateAnimation(0, -100, 0, 0);
+        Animation animationXpos = new TranslateAnimation(0, -300, 0, 0);
         animationXpos.setDuration(500);
         //   animationXpos.setRepeatMode(Animation.REVERSE);
         eatButton.startAnimation(animationXpos);
@@ -305,7 +314,7 @@ public class MainActivity extends AppCompatActivity  {
         Fade fade = new Fade();
         fade.setDuration(1000);
         TransitionManager.beginDelayedTransition(mRoot, fade);
-        toggleVisibility(mRoot, drinkButton, eatButton, addReviewButton, readReviewButton);
+        toggleVisibility(mRoot, drinkButton, eatButton, drinkButton2, addReviewButton, readReviewButton);
 
 
     }
@@ -324,7 +333,7 @@ public class MainActivity extends AppCompatActivity  {
 
         setupWindowAnimations();
     }
-    
+
     @Override
     public void onBackPressed() {
         // TODO Auto-generated method stub

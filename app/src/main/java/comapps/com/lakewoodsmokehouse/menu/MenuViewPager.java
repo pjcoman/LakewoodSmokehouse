@@ -1,4 +1,4 @@
-package comapps.com.theblindbutcherdallas.menu;
+package comapps.com.lakewoodsmokehouse.menu;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -26,7 +26,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import comapps.com.theblindbutcherdallas.R;
+import comapps.com.lakewoodsmokehouse.R;
 
 
 /**
