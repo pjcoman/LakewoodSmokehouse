@@ -3,6 +3,7 @@ package comapps.com.lakewoodsmokehouse;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity  {
     private Button eatButton;
     private Button addReviewButton;
     private Button readReviewButton;
+
 
 
 
@@ -173,20 +175,11 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+            Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+            String facebookUrl = getFacebookPageURL(this);
+            facebookIntent.setData(Uri.parse(facebookUrl));
+            startActivity(facebookIntent);
 
-
-            try{
-
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/1027584667305709"));
-                startActivity(intent);
-
-            }catch(Exception e){
-
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/id=576657282362451")));
-
-            }
-
-            return true;
         }
 
         if (id == R.id.action_settings4) {
@@ -282,6 +275,39 @@ public class MainActivity extends AppCompatActivity  {
         });
 
 
+
+
+    }
+
+    public void drinklist2(View v) {
+
+        Animation animationXpos = new TranslateAnimation(0, 300, 0, 0);
+        animationXpos.setDuration(500);
+        //  animationXpos.setRepeatMode(Animation.REVERSE);
+        drinkButton2.startAnimation(animationXpos);
+
+        animationXpos.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                Intent intentDrinks = new Intent();
+                intentDrinks.setClass(MainActivity.this, DrinksViewPager.class);
+                intentDrinks.putExtra("activityId", "drinks2");
+                startActivity(intentDrinks);
+                overridePendingTransition(R.anim.pushinfromright,
+                        R.anim.pushouttoleft);
+
+            }
+        });
     }
 
 
@@ -324,6 +350,24 @@ public class MainActivity extends AppCompatActivity  {
             if (current.getVisibility() != View.VISIBLE) {
                 current.setVisibility(View.VISIBLE);
             }
+        }
+    }
+
+    public static String FACEBOOK_URL = "https://www.facebook.com/LakewoodSmokehouse";
+    public static String FACEBOOK_PAGE_ID = "1027584667305709";
+
+    //method to get the right URL to use in the intent
+    public String getFacebookPageURL(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+            if (versionCode >= 3002850) { //newer versions of fb app
+                return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+            } else { //older versions of fb app
+                return "fb://page/" + FACEBOOK_PAGE_ID;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return FACEBOOK_URL; //normal web url
         }
     }
 

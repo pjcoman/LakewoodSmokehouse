@@ -67,6 +67,7 @@ class DrinksListViewAdapter extends BaseAdapter {
             holder.drinkIBU = (TextView) view.findViewById(R.id.IBUTxt);
             holder.dot = (ImageView) view.findViewById(R.id.dotSeparator);
             holder.drinkIBUTV = (TextView) view.findViewById(R.id.IBUTxtlabel);
+            holder.drinkInfo = (TextView) view.findViewById(R.id.infoTxt);
 
             //holder.beerimage = (ImageView) view.findViewById(R.id.beerimage);
 
@@ -137,6 +138,7 @@ class DrinksListViewAdapter extends BaseAdapter {
         holder.drinkname.setText(object.getDrinkName());
         holder.drinkabv.setText(tempAbv);
         holder.drinkprice.setText(tempPrice);
+        holder.drinkInfo.setText(object.getDrinkInfo());
 
 
 
@@ -147,6 +149,7 @@ class DrinksListViewAdapter extends BaseAdapter {
         holder.abvlabel.setTypeface(font);
         holder.drinkIBU.setTypeface(font);
         holder.drinkIBUTV.setTypeface(font);
+        holder.drinkInfo.setTypeface(font);
 
       //  Picasso.with(context).load(object.getBeerImage()).resize(200, 400).into(holder.beerimage);
 
@@ -168,6 +171,7 @@ class DrinksListViewAdapter extends BaseAdapter {
         TextView abvlabel;
         TextView drinkIBU;
         TextView drinkIBUTV;
+        TextView drinkInfo;
         LinearLayout abvlayout;
         ImageView dot;
     }

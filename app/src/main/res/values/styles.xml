@@ -13,6 +13,11 @@
         <item name="android:windowTransitionBackgroundFadeDuration" tools:targetApi="lollipop">2000</item>
 
     </style>
+
+    <style name="yourstyle" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

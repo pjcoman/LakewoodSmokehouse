@@ -64,7 +64,7 @@ public class MenuListViewFragment extends ListFragment {
         try {
 
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "theblindbutchermenu").fromLocalDatastore();
+                    "ls_menu").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 

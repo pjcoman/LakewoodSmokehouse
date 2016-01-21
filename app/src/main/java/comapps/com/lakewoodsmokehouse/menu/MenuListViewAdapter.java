@@ -79,8 +79,19 @@ class MenuListViewAdapter extends BaseAdapter {
         holder.price.setTypeface(font);
         holder.description.setTypeface(font);
 
-        String checkForNull = object.getPrice();
+        String checkForNull = object.getItem();
         if ( checkForNull == null ) {
+            holder.item.setVisibility(View.GONE);
+        } else if ( checkForNull == ""){
+            holder.item.setVisibility(View.GONE);
+        } else {
+            holder.item.setVisibility(View.VISIBLE);
+        }
+
+        checkForNull = object.getPrice();
+        if ( checkForNull == null ) {
+            holder.price.setVisibility(View.GONE);
+        } else if ( checkForNull == ""){
             holder.price.setVisibility(View.GONE);
         } else {
             holder.price.setVisibility(View.VISIBLE);
@@ -89,6 +100,9 @@ class MenuListViewAdapter extends BaseAdapter {
         checkForNull = object.getDescription();
         if ( checkForNull == null ) {
             holder.description.setVisibility(View.GONE);
+        } else if ( checkForNull == ""){
+            holder.description.setVisibility(View.GONE);
+
         } else {
             holder.description.setVisibility(View.VISIBLE);
         }

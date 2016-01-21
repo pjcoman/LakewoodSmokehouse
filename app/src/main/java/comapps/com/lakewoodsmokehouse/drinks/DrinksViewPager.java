@@ -36,9 +36,12 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
 
     private ViewPager viewPager = null;
-
     private Sensor mySensor;
     private SensorManager SM;
+    String idOfSendingActivity = "";
+    final String drinks2 = "drinks2";
+
+
 
 
     @Override
@@ -53,10 +56,7 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
 
 
-        String idOfSendingActivity = getIntent().getStringExtra("activityId");
-
-        Log.d("Sending activty is", idOfSendingActivity);
-
+        idOfSendingActivity = getIntent().getStringExtra("activityId");
 
 
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -66,6 +66,8 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
+
+
 
 
         Typeface tf = Typeface.createFromAsset(this.getAssets(),
@@ -87,12 +89,12 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
     public void onSensorChanged(SensorEvent event) {
 
 
-        Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
-        Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
+    //    Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
+    //    Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
 
         if (event.values[2] > 10) {
 
-            Log.d("Sensor value X is ", String.valueOf(event.values[0]));
+     //       Log.d("Sensor value X is ", String.valueOf(event.values[0]));
 
             finish();
 
@@ -114,7 +116,20 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
         @Override
         public Fragment getItem(int position) {
-            return DrinksListViewFragment.newInstance(position + 1);
+
+                System.out.println("Size of drinkGroups is " + getDrinkGroups().size());
+                Log.d("Sending activity is", idOfSendingActivity);
+
+                if ( idOfSendingActivity.equalsIgnoreCase(drinks2)) {
+
+                    return DrinksListViewFragment.newInstance(3, idOfSendingActivity);
+
+                } else {
+
+                    return DrinksListViewFragment.newInstance(position + 1, idOfSendingActivity);
+
+                }
+
         }
 
         @Override
@@ -123,9 +138,18 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
             ArrayList<String> drinkGroups = getDrinkGroups();
 
-            return drinkGroups.size();
-        }
+            if ( idOfSendingActivity.equalsIgnoreCase(drinks2)) {
 
+                return 1;
+
+            } else {
+
+                return drinkGroups.size();
+
+            }
+
+
+        }
 
 
         @Override
@@ -133,44 +157,70 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
             ArrayList<String> drinkGroups = getDrinkGroups();
 
+         //   System.out.println("Size of drinkGroups is " + drinkGroups.size());
+
+                for (int i = 0; i < drinkGroups.size(); i++) {
+                    Log.v("Array Value", "Array Value " + drinkGroups.get(i));
+
+                    if (position == i) {
+
+                        //   drinkGroups.set(i, drinkGroups.get(i).replace("IMPORTED BOMBERS", "JIHADIS"));
+                        //   drinkGroups.set(i, drinkGroups.get(i).replace("DOMESTIC BOMBERS", "MCVEIGHS"));
+
+                     //   Log.v("DrinkGroupName", "Drink group name is " + drinkGroups.get(i));
+
+                        if ( idOfSendingActivity.equalsIgnoreCase(drinks2)) {
+
+                            return new SpannableStringBuilder(" COCKTAILS");
+
+                        } else {
+
+                            return new SpannableStringBuilder(" " + drinkGroups.get(i));
+                        }
 
 
-            for (int i = 0; i < drinkGroups.size(); i++) {
-                Log.v("Array Value", "Array Value" + drinkGroups.get(i));
 
-                if (position == i) {
-
-                 //   drinkGroups.set(i, drinkGroups.get(i).replace("IMPORTED BOMBERS", "JIHADIS"));
-                 //   drinkGroups.set(i, drinkGroups.get(i).replace("DOMESTIC BOMBERS", "MCVEIGHS"));
-
-                    return new SpannableStringBuilder(" " + drinkGroups.get(i));
+                    }
                 }
+
+
+                return null;
             }
-            return null;
         }
 
 
-
-    }
-
-    private static ArrayList<String> getDrinkGroups()    {
+    private ArrayList<String> getDrinkGroups()    {
 
         List<ParseObject> ob;
 
         ArrayList<String> drinkGroups = new ArrayList<>();
 
+
+
         try {
-            // Locate the class table named "stansbeers" in Parse.com
+
             ParseQuery<ParseObject> query = new ParseQuery<>(
                     "ls_groups").fromLocalDatastore();
-            query.orderByAscending("sort").whereEqualTo("type", "DRINK");
+
+
+         //   Log.d("Sending activity in DG ", idOfSendingActivity);
+
+
+
+
+                query.orderByAscending("sort").whereEqualTo("type", "DRINK");
+
+
             ob = query.find();
 
 
             for (ParseObject drink : ob) {
-                // Locate images in flag column
 
                 drinkGroups.add((String) drink.get("group"));
+
+            //    System.out.println("Size of drinkGroups after add is " + drinkGroups.size());
+
+            //    Log.v("DrinkGroup", "Drink group is " + drink.get("group"));
 
             }
 

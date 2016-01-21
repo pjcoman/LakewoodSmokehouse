@@ -7,6 +7,7 @@ class DrinkListObject {
     private String drinkgroup;
     private String drinkprice;
     private Integer drinkIBU;
+    private String drinkinfo;
 
 
 
@@ -47,6 +48,14 @@ class DrinkListObject {
         this.drinkIBU = drinkIBU;
     }
 
+    public String getDrinkInfo() {
+        return drinkinfo;
+    }
+
+    public void setDrinkInfo(String drinkinfo) {
+        this.drinkinfo = drinkinfo;
+    }
+
 
 
     @Override
@@ -55,7 +64,7 @@ class DrinkListObject {
                 ", drinkabv=" + drinkabv.toString() +
                 ", drinkgroup=" + drinkgroup +
                 ", drinkprice=" + drinkprice +
-                ", drinkIBU=" + drinkIBU.toString() + "]";
+                ", drinkIBU=" + drinkIBU.toString() + ", drinkinfo=" + drinkinfo + "]";
     }
 
 

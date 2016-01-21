@@ -26,6 +26,8 @@ import comapps.com.lakewoodsmokehouse.R;
 public class DrinksListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
+    private static final String ARG_SENDING_ACTIVITY = "number_of_pages";
+
 
     private List<DrinkListObject> drinkObject;
     private DrinksListViewAdapter adapter;
@@ -34,11 +36,18 @@ public class DrinksListViewFragment extends ListFragment {
 
     }
 
-    public static DrinksListViewFragment newInstance(int page) {
+    public static DrinksListViewFragment newInstance(int page, String sendingActivity) {
         DrinksListViewFragment fragment = new DrinksListViewFragment();
+
+        String pageString = Integer.toString(page);
+        System.out.println("DLVF position " + pageString);
+        System.out.println("DLVF sending activity " + sendingActivity);
+
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE_NUMBER, page);
+        args.putString(ARG_SENDING_ACTIVITY, sendingActivity);
         fragment.setArguments(args);
+        
 
 
         return fragment;
@@ -68,7 +77,13 @@ public class DrinksListViewFragment extends ListFragment {
             // by ascending
 
 
-            query.orderByAscending("sort").whereEqualTo("groupsort", groupId);
+
+
+                query.orderByAscending("sort").whereEqualTo("groupsort", groupId);
+
+
+
+
 
             ob = query.find();
 
@@ -85,6 +100,7 @@ public class DrinksListViewFragment extends ListFragment {
                 drink.setDrinkGroup((String) drinks.get("group"));
                 drink.setDrinkPrice((String) drinks.get("price"));
                 drink.setDrinkIBU((Integer) drinks.get("IBU"));
+                drink.setDrinkInfo((String) drinks.get("info"));
                 drinkObject.add(drink);
             }
 

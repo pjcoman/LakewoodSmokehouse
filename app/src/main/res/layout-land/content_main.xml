@@ -21,9 +21,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:paddingBottom="50dp"
-        android:paddingTop="50dp">
+        android:layout_weight="3"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:weightSum="3">
 
         <Button
             android:layout_width="match_parent"
@@ -33,11 +34,11 @@
             android:background="@android:color/black"
             android:onClick="drinkslist"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_margin="20dp"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:text="CRAFT BEER"
             android:textColor="@android:color/white"
-            android:alpha="50"/>
+            android:alpha="50"
+            android:layout_margin="10dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -46,12 +47,12 @@
             android:layout_weight="1"
             android:onClick="menulist"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_margin="20dp"
             android:text="BARBECUE"
             android:textColor="@android:color/white"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:alpha="50"
-            android:background="#e00025"/>
+            android:background="#e00025"
+            android:layout_margin="10dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -60,12 +61,12 @@
             android:layout_weight="1"
             android:onClick="menulist"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_margin="20dp"
             android:background="@android:color/black"
             android:text="COCKTAILS"
             android:textColor="@android:color/white"
-            android:textSize="40sp"
-            android:alpha="50"/>
+            android:textSize="30sp"
+            android:alpha="50"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 

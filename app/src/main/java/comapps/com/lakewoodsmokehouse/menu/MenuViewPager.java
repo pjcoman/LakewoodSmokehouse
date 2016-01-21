@@ -61,7 +61,7 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
         PagerTitleStripV22 pts = (PagerTitleStripV22) findViewById(R.id.title);
 
         pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        pts.setTextColor(Color.parseColor("#000000"));
+        pts.setTextColor(Color.parseColor("#FFFFFF"));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
@@ -85,12 +85,12 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
-        Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
+     //   Log.d("Sensor value Y is ", String.valueOf(event.values[1]));
+     //   Log.d("Sensor value Z is ", String.valueOf(event.values[2]));
 
         if (event.values[2] > 10) {
 
-            Log.d("Sensor value X is ", String.valueOf(event.values[0]));
+     //       Log.d("Sensor value X is ", String.valueOf(event.values[0]));
 
             finish();
 
@@ -143,7 +143,7 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
                 if (position == i) {
 
 
-                    return new SpannableStringBuilder(" " + menuGroups.get(i).toLowerCase());
+                    return new SpannableStringBuilder(" " + menuGroups.get(i));
                 }
             }
             return null;
@@ -159,7 +159,7 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
         try {
 
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "theblindbutchergroups").fromLocalDatastore();
+                    "ls_groups").fromLocalDatastore();
             query.orderByAscending("sort").whereEqualTo("type", "EATS");
             ob = query.find();
 

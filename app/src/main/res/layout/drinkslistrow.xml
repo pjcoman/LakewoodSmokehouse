@@ -16,8 +16,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="name of beer"
-            android:textColor="@android:color/black"
+            android:text="Jalapeno Mango Rita"
+            android:textColor="@android:color/white"
             android:textSize="26sp"
             android:textStyle="bold"/>
 
@@ -27,54 +27,69 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:id="@+id/abvLayout"
-        android:background="@android:color/white">
+        android:background="@android:color/transparent">
 
 
     <TextView
-            android:id="@+id/abvTxtlabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="26sp"
-            android:textStyle="bold|normal"
-            android:text="abv"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"/>
+        android:id="@+id/abvTxtlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="normal"
+        android:text="abv"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/abvTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:text="8.0"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp"/>
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/IBUTxtlabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="26sp"
             android:text="IBU"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp"/>
+            android:paddingRight="5dp"
+            android:textStyle="normal"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/IBUTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:textStyle="bold"
-            android:text="8.0"
+            android:textStyle="normal"
+            android:text="88"
             android:paddingLeft="2dp"
-            android:paddingRight="2dp"/>
+            android:paddingRight="2dp"
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/infoTxt"
+        android:textColor="@android:color/white"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="normal"/>
 
     <TextView
             android:id="@+id/priceTxt"
@@ -82,7 +97,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="$5.00"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="26sp"
             android:textStyle="bold|italic"/>
 

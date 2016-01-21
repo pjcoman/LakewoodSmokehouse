@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/drinkbutton2"
             android:layout_weight="1"
-            android:onClick="menulist"
+            android:onClick="drinklist2"
             android:gravity="center_vertical|center_horizontal"
             android:layout_margin="20dp"
             android:background="@android:color/black"

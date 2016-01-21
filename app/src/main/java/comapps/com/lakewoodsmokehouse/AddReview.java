@@ -44,7 +44,7 @@ public class AddReview extends Activity {
 
                 try {// TODO Auto-generated method stub
 
-                    ParseObject review = new ParseObject("theblindbutcherreviews");
+                    ParseObject review = new ParseObject("ls_reviews");
                     review.put("reviewname", reviewName.getText().toString());
                     review.put("rating", String.valueOf(ratingBar.getRating()));
                     review.put("review", reviewText.getText().toString());

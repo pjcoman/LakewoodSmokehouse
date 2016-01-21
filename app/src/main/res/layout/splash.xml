@@ -12,6 +12,6 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/bbsplash" />
+        />
 
 </FrameLayout>
