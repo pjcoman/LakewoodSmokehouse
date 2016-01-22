@@ -14,10 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
@@ -52,6 +49,10 @@ public class MainActivity extends AppCompatActivity  {
 
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
 
         mRoot = (ViewGroup) findViewById(R.id.container_a);
         drinkButton = (Button) findViewById(R.id.drinkbutton);
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity  {
         addReviewButton = (Button) findViewById(R.id.button_add);
         readReviewButton = (Button) findViewById(R.id.button_read);
 
-        Animation fadeIn = new AlphaAnimation(0, 1);
+    /*    Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
         fadeIn.setDuration(500);
 
@@ -114,11 +115,11 @@ public class MainActivity extends AppCompatActivity  {
         readReviewButton.startAnimation(animationButtons5);
 
 
+        */
+
         //   setupWindowAnimations();
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
 
@@ -345,7 +346,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void toggleVisibility(View... views) {
+    private void toggleVisibility(View... views) {
         for (View current : views) {
             if (current.getVisibility() != View.VISIBLE) {
                 current.setVisibility(View.VISIBLE);
@@ -353,11 +354,11 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
-    public static String FACEBOOK_URL = "https://www.facebook.com/LakewoodSmokehouse";
-    public static String FACEBOOK_PAGE_ID = "1027584667305709";
+    private static String FACEBOOK_URL = "https://www.facebook.com/LakewoodSmokehouse";
+    private static String FACEBOOK_PAGE_ID = "1027584667305709";
 
     //method to get the right URL to use in the intent
-    public String getFacebookPageURL(Context context) {
+    private String getFacebookPageURL(Context context) {
         PackageManager packageManager = context.getPackageManager();
         try {
             int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;

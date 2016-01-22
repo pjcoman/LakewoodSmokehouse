@@ -4,10 +4,10 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:clickable="false"
-              android:gravity="center_horizontal"
               android:orientation="vertical"
-              android:padding="10dp"
-              android:background="@android:color/transparent">
+              android:background="@android:color/transparent"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp">
 
     <TextView
         android:id="@+id/itemTxt"
@@ -15,11 +15,11 @@
         android:layout_height="wrap_content"
         android:clickable="false"
         android:gravity="center"
-        android:padding="10dp"
         android:text="ITEM"
         android:textColor="@android:color/white"
         android:textSize="26sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/descriptionTxt"
@@ -27,30 +27,30 @@
         android:layout_height="wrap_content"
         android:clickable="false"
         android:gravity="center"
-        android:padding="10dp"
         android:text="description"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_margin="4dp"/>
 
     <TextView
         android:id="@+id/priceTxt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="5dp"
         android:text="price"
         android:textColor="@android:color/white"
         android:textSize="26sp"
-        android:textStyle="bold|italic"/>
+        android:textStyle="bold|italic"
+        android:layout_margin="4dp"/>
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/dotSeparator"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/blackdot"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="10dp"/>
+        android:src="@drawable/separator"
+        android:layout_margin="20dp"
+        />
 
 </LinearLayout>

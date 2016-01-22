@@ -57,17 +57,17 @@ public class ParseApplication extends Application implements BootstrapNotifier {
 
 
         ParseQuery<ParseObject> queryDrinks = new ParseQuery<>(
-                "lw_smokehousedrinks");
+                "ls_drinks");
         queryDrinks.setLimit(200);
 
 
         queryDrinks.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> object, ParseException e) {
                 // Remove the previously cached results.
-                ParseObject.unpinAllInBackground("lw_smokehousedrinks", new DeleteCallback() {
+                ParseObject.unpinAllInBackground("ls_drinks", new DeleteCallback() {
                     public void done(ParseException e) {
                         // Cache the new results.
-                        ParseObject.pinAllInBackground("lw_smokehousedrinks", object);
+                        ParseObject.pinAllInBackground("ls_drinks", object);
                     }
                 });
             }

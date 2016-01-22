@@ -35,11 +35,6 @@ import comapps.com.lakewoodsmokehouse.R;
 public class MenuViewPager extends AppCompatActivity implements SensorEventListener {
 
 
-    private ViewPager viewPager = null;
-
-    private Sensor mySensor;
-    private SensorManager SM;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +42,20 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
 
         setContentView(R.layout.activity_main_viewpager_menu);
 
-        SM = (SensorManager)getSystemService(SENSOR_SERVICE);
-        mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SensorManager SM = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         String idOfSendingActivity = getIntent().getStringExtra("activityId");
 
         Log.d("Sending activty is", idOfSendingActivity);
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
 
         PagerTitleStripV22 pts = (PagerTitleStripV22) findViewById(R.id.title);
 
-        pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         pts.setTextColor(Color.parseColor("#FFFFFF"));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -68,7 +63,7 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
 
 
         Typeface tf = Typeface.createFromAsset(this.getAssets(),
-                "fonts/MerriweatherSans-Italic.ttf");
+                "fonts/MerriweatherSans-Regular.ttf");
 
 
         for (int i = 0; i < pts.getChildCount(); i++) {

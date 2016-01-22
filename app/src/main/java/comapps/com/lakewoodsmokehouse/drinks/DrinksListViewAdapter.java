@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Objects;
 
 import comapps.com.lakewoodsmokehouse.R;
 
@@ -82,7 +83,8 @@ class DrinksListViewAdapter extends BaseAdapter {
         // Set the results into TextViews
         DrinkListObject object = drinkObject.get(position);
 
-        String tempAbv = "";
+        String tempAbv;
+
 
         if ( object.getDrinkAbv() == null ) {
             tempAbv = "0.0";
@@ -90,13 +92,13 @@ class DrinksListViewAdapter extends BaseAdapter {
             tempAbv = (object.getDrinkAbv().toString());
         }
 
-        if ( tempAbv == "0.0") {
+        if (Objects.equals(tempAbv, "0.0")) {
             holder.abvlayout.setVisibility(View.GONE);
         } else {
             holder.abvlayout.setVisibility(View.VISIBLE);
         }
 
-        String tempPrice = "";
+        String tempPrice;
 
         if ( object.getDrinkPrice() == null ) {
             tempPrice = " ";
@@ -106,7 +108,7 @@ class DrinksListViewAdapter extends BaseAdapter {
 
 
 
-        if ( tempPrice == " ") {
+        if (Objects.equals(tempPrice, " ")) {
             holder.drinkprice.setVisibility(View.GONE);
         } else {
             holder.drinkprice.setVisibility(View.VISIBLE);
@@ -119,16 +121,25 @@ class DrinksListViewAdapter extends BaseAdapter {
      //       Log.i("LOGTAG", "IBU is null");
             tempIBU = "00";
         } else {
-            tempIBU = (object.getDrinkIBU().toString());
+            tempIBU = (object.getDrinkIBU().toString().trim());
         }
 
-        if ( tempIBU == "00") {
+        if (Objects.equals(tempIBU, "00")) {
             holder.drinkIBU.setVisibility(View.GONE);
             holder.drinkIBUTV.setVisibility(View.GONE);
 
         } else {
             holder.drinkIBU.setVisibility(View.VISIBLE);
             holder.drinkIBUTV.setVisibility(View.VISIBLE);
+        }
+
+        String checkForNull = object.getDrinkInfo();
+        if ( checkForNull == null ) {
+            holder.drinkInfo.setVisibility(View.GONE);
+        } else if (Objects.equals(checkForNull, "")){
+            holder.drinkInfo.setVisibility(View.GONE);
+        } else {
+            holder.drinkInfo.setVisibility(View.VISIBLE);
         }
 
 

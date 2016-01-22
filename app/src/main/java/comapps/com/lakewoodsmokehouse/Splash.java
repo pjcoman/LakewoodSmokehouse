@@ -15,8 +15,6 @@ import android.widget.ImageView;
  */
 public class Splash extends AppCompatActivity implements Animation.AnimationListener  {
 
-    private ViewGroup mRoot;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +22,7 @@ public class Splash extends AppCompatActivity implements Animation.AnimationList
 
         setupWindowAnimations();
 
-        mRoot = (ViewGroup) findViewById(R.id.splash);
+        ViewGroup mRoot = (ViewGroup) findViewById(R.id.splash);
 
         Animation a = AnimationUtils
                 .loadAnimation(this, R.anim.startanimation);

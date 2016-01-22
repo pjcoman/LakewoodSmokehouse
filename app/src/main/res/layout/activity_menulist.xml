@@ -13,6 +13,6 @@
         android:layout_height="match_parent"
         android:id="@+id/fragmentmenu"
         android:name="comapps.com.lakewoodsmokehouse.menu.MenuListViewFragment"
-        tools:layout="@layout/menulist_with_fragment" />
+        tools:layout="@layout/activity_menulist" />
 
 </RelativeLayout>

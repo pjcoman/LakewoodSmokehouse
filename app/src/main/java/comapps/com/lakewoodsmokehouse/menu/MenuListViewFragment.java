@@ -6,12 +6,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -29,7 +26,6 @@ public class MenuListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
     private List<MenuListObject> menuObject;
-    private MenuListViewAdapter adapter;
     int x = 0;
 
     public MenuListViewFragment() {
@@ -88,10 +84,26 @@ public class MenuListViewFragment extends ListFragment {
 
 
                 MenuListObject menuItem = new MenuListObject();
-                menuItem.setItem((String) menu.get("item"));
-                menuItem.setPrice((String) menu.get("price"));
-                menuItem.setGroup((String) menu.get("group"));
-                menuItem.setDescription((String) menu.get("description"));
+
+                String tempItem = (String) menu.get("item");
+                if ( tempItem != null ) { tempItem.trim();}
+                menuItem.setItem(tempItem);
+
+                String tempPrice = (String) menu.get("price");
+                if ( tempPrice != null ) { tempPrice.trim();}
+                menuItem.setPrice(tempPrice);
+
+                String tempGroup = (String) menu.get("group");
+                if ( tempGroup != null ) { tempGroup.trim();}
+                menuItem.setGroup(tempGroup);
+
+                String tempDesc = (String) menu.get("description");
+                if ( tempDesc != null ) { tempDesc.trim();}
+                menuItem.setDescription(tempDesc);
+
+               // menuItem.setPrice((String) menu.get("price"));
+               // menuItem.setGroup((String) menu.get("group"));
+               // menuItem.setDescription((String) menu.get("description"));
                 menuObject.add(menuItem);
             }
 
@@ -101,7 +113,7 @@ public class MenuListViewFragment extends ListFragment {
             e.printStackTrace();
         }
 
-        adapter = new MenuListViewAdapter(getActivity(), menuObject);
+        MenuListViewAdapter adapter = new MenuListViewAdapter(getActivity(), menuObject);
         setListAdapter(adapter);
 
 

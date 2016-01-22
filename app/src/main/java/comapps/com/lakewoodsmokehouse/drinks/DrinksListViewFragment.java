@@ -30,8 +30,8 @@ public class DrinksListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
     private static final String ARG_SENDING_ACTIVITY = "number_of_pages";
-    int x = 0;
-    int y = 0;
+    private int x = 0;
+    private int y = 0;
 
 
     private List<DrinkListObject> drinkObject;
@@ -77,7 +77,7 @@ public class DrinksListViewFragment extends ListFragment {
         try {
 
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "lw_smokehousedrinks").fromLocalDatastore();
+                    "ls_drinks").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 
@@ -93,12 +93,27 @@ public class DrinksListViewFragment extends ListFragment {
 
 
                 DrinkListObject drink = new DrinkListObject();
-                drink.setDrinkName((String) drinks.get("item"));
+
+                String tempItem = (String) drinks.get("item");
+                if ( tempItem != null) { tempItem.trim(); }
+                drink.setDrinkName(tempItem);
+
                 drink.setDrinkAbv(drinks.getDouble("abv"));
-                drink.setDrinkGroup((String) drinks.get("group"));
-                drink.setDrinkPrice((String) drinks.get("price"));
+
+                String tempGroup = (String) drinks.get("group");
+                if ( tempGroup != null) { tempGroup.trim(); }
+                drink.setDrinkGroup(tempGroup);
+
+                String tempPrice = (String) drinks.get("price");
+                if ( tempPrice != null) { tempPrice.trim(); }
+                drink.setDrinkPrice(tempPrice);
+
                 drink.setDrinkIBU((Integer) drinks.get("IBU"));
-                drink.setDrinkInfo((String) drinks.get("info"));
+
+                String tempDesc = (String) drinks.get("info");
+                if ( tempDesc != null) { tempDesc.trim(); }
+                drink.setDrinkInfo(tempDesc);
+
                 drinkObject.add(drink);
             }
 
@@ -149,7 +164,7 @@ public class DrinksListViewFragment extends ListFragment {
 
         String tm = toastSort[x];
 
-        Toast sort = Toast.makeText(getActivity(), tm, Toast.LENGTH_LONG);
+        Toast sort = Toast.makeText(getActivity(), tm, Toast.LENGTH_SHORT);
         sort.setGravity(Gravity.CENTER, 0, 0);
         sort.show();
 
@@ -158,7 +173,7 @@ public class DrinksListViewFragment extends ListFragment {
         try {
             // Locate the class table named "stansbeers" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<>(
-                    "lw_smokehousedrinks").fromLocalDatastore();
+                    "ls_drinks").fromLocalDatastore();
             // Locate the column named "name" in Parse.com and order list
             // by ascending
 

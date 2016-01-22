@@ -2,7 +2,6 @@ package comapps.com.lakewoodsmokehouse.menu;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,9 +69,13 @@ class MenuListViewAdapter extends BaseAdapter {
         //
         MenuListObject object = menuObject.get(position);
 
+
+
         holder.item.setText(object.getItem());
         holder.price.setText(object.getPrice());
         holder.description.setText(object.getDescription());
+
+
 
         Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/MerriweatherSans-Light.ttf");
         holder.item.setTypeface(font);
@@ -82,7 +85,7 @@ class MenuListViewAdapter extends BaseAdapter {
         String checkForNull = object.getItem();
         if ( checkForNull == null ) {
             holder.item.setVisibility(View.GONE);
-        } else if ( checkForNull == ""){
+        } else if (checkForNull.equalsIgnoreCase("")){
             holder.item.setVisibility(View.GONE);
         } else {
             holder.item.setVisibility(View.VISIBLE);
@@ -91,7 +94,7 @@ class MenuListViewAdapter extends BaseAdapter {
         checkForNull = object.getPrice();
         if ( checkForNull == null ) {
             holder.price.setVisibility(View.GONE);
-        } else if ( checkForNull == ""){
+        } else if (checkForNull.equalsIgnoreCase("")){
             holder.price.setVisibility(View.GONE);
         } else {
             holder.price.setVisibility(View.VISIBLE);
@@ -100,19 +103,18 @@ class MenuListViewAdapter extends BaseAdapter {
         checkForNull = object.getDescription();
         if ( checkForNull == null ) {
             holder.description.setVisibility(View.GONE);
-        } else if ( checkForNull == ""){
+        } else if (checkForNull.equalsIgnoreCase("")){
             holder.description.setVisibility(View.GONE);
-
         } else {
             holder.description.setVisibility(View.VISIBLE);
         }
 
 
 
-        String text = object.getGroup();
+   /*      String text = object.getGroup();
 
 
-        switch (text) {
+       switch (text) {
             case ("CHEESEPLATES"):
                 holder.item.setTextColor(Color.YELLOW);
               //  holder.other.setVisibility(View.GONE);
@@ -128,10 +130,14 @@ class MenuListViewAdapter extends BaseAdapter {
             default:
              //   holder.item.setTextColor(Color.YELLOW);
 
+
+
         }
 
+        */
+
         if ( position == (getCount() - 1)) {
-            holder.dot.setVisibility(View.INVISIBLE);
+            holder.dot.setVisibility(View.GONE);
         }
 
 

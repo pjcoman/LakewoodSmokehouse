@@ -111,7 +111,7 @@ public class PagerTabStripV22 extends PagerTitleStripV22 {
      *
      * @param color Color to set as an 0xRRGGBB value. The high byte (alpha) is ignored.
      */
-    public void setTabIndicatorColor(int color) {
+    private void setTabIndicatorColor(int color) {
         mIndicatorColor = color;
         mTabPaint.setColor(mIndicatorColor);
         invalidate();

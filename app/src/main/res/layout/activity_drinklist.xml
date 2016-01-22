@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:id="@+id/fragmentdrinks"
         android:name="comapps.com.lakewoodsmokehouse.drinks.DrinksListViewFragment"
-        tools:layout="@layout/drinklist_with_fragment"/>
+        tools:layout="@layout/activity_drinklist"/>
 
 
 </LinearLayout>

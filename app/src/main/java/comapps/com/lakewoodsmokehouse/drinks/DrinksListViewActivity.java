@@ -13,7 +13,7 @@ public class DrinksListViewActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.drinklist_with_fragment);
+        setContentView(R.layout.activity_drinklist);
 
 
     }

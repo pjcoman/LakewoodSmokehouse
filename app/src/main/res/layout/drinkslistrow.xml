@@ -7,8 +7,9 @@
               android:clickable="false"
               android:orientation="vertical"
               android:weightSum="2"
-              android:padding="10dp"
-              android:background="@android:color/transparent">
+              android:paddingTop="20dp"
+              android:paddingLeft="30dp"
+              android:paddingRight="30dp">
 
 
         <TextView
@@ -19,7 +20,8 @@
             android:text="Jalapeno Mango Rita"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -27,7 +29,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:id="@+id/abvLayout"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        android:padding="10dp">
 
 
     <TextView
@@ -35,48 +39,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:textSize="26sp"
+        android:textSize="18sp"
         android:textStyle="normal"
         android:text="abv"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp"
-        android:background="@android:color/transparent"/>
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        />
 
         <TextView
             android:id="@+id/abvTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:textStyle="normal"
             android:text="8.0"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:background="@android:color/transparent"/>
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:id="@+id/IBUTxtlabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:text="IBU"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:textStyle="normal"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            />
 
         <TextView
             android:id="@+id/IBUTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:textStyle="normal"
             android:text="88"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
-            android:background="@android:color/transparent"/>
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 
@@ -88,26 +101,29 @@
         android:id="@+id/infoTxt"
         android:textColor="@android:color/white"
         android:gravity="center_horizontal"
-        android:textSize="18sp"
-        android:textStyle="normal"/>
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:text="ugiuguigiuguigguigyfgdsfsdfsdfsdfsdfsdftdhtfgfyugyuguyg"/>
 
     <TextView
-            android:id="@+id/priceTxt"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="$5.00"
-            android:textColor="@android:color/white"
-            android:textSize="26sp"
-            android:textStyle="bold|italic"/>
+        android:id="@+id/priceTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="$5.00"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
+        android:padding="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp"/>
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/dotSeparator"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/blackdot"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="10dp"/>
+        />
 
 </LinearLayout>

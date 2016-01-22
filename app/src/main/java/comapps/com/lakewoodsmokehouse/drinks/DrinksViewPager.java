@@ -35,11 +35,8 @@ import comapps.com.lakewoodsmokehouse.R;
 public class DrinksViewPager extends AppCompatActivity implements SensorEventListener {
 
 
-    private ViewPager viewPager = null;
-    private Sensor mySensor;
-    private SensorManager SM;
-    String idOfSendingActivity = "";
-    final String drinks2 = "drinks2";
+    private String idOfSendingActivity = "";
+    private final String drinks2 = "drinks2";
 
 
 
@@ -50,8 +47,8 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
 
         setContentView(R.layout.activity_main_viewpager_drinks);
 
-        SM = (SensorManager)getSystemService(SENSOR_SERVICE);
-        mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SensorManager SM = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
 
@@ -59,7 +56,7 @@ public class DrinksViewPager extends AppCompatActivity implements SensorEventLis
         idOfSendingActivity = getIntent().getStringExtra("activityId");
 
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         PagerTitleStripV22 pts = (PagerTitleStripV22) findViewById(R.id.title);
         pts.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         pts.setTextColor(Color.parseColor("#e00025"));

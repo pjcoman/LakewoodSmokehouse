@@ -3,13 +3,13 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:id="@+id/pager"
-    android:background="@android:color/white">
+    android:background="@drawable/ls_background">
 
     <android.support.v4.view.PagerTitleStripV22
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/title"
-        android:background="#e00025"
+        android:background="#99e00025"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:layout_gravity="top"

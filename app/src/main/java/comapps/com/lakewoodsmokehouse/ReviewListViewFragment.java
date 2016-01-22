@@ -25,7 +25,6 @@ public class ReviewListViewFragment extends ListFragment {
 
 
     private List<ReviewListObject> reviewObject;
-    private ReviewListViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,7 +79,7 @@ public class ReviewListViewFragment extends ListFragment {
             e.printStackTrace();
         }
 
-        adapter = new ReviewListViewAdapter(getActivity(), reviewObject);
+        ReviewListViewAdapter adapter = new ReviewListViewAdapter(getActivity(), reviewObject);
         setListAdapter(adapter);
 
 
