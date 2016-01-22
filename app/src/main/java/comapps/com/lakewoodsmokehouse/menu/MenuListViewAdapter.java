@@ -107,6 +107,8 @@ class MenuListViewAdapter extends BaseAdapter {
             holder.description.setVisibility(View.VISIBLE);
         }
 
+
+
         String text = object.getGroup();
 
 

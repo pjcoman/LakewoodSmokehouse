@@ -6,9 +6,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,6 +30,7 @@ public class MenuListViewFragment extends ListFragment {
     private static final String ARG_PAGE_NUMBER = "page_number";
     private List<MenuListObject> menuObject;
     private MenuListViewAdapter adapter;
+    int x = 0;
 
     public MenuListViewFragment() {
 
@@ -102,6 +106,8 @@ public class MenuListViewFragment extends ListFragment {
 
 
     }
+
+
 
 
     @Override

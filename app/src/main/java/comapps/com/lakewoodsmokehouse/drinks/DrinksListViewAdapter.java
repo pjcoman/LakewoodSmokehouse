@@ -3,7 +3,6 @@ package comapps.com.lakewoodsmokehouse.drinks;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,7 +116,7 @@ class DrinksListViewAdapter extends BaseAdapter {
 
 
         if ( object.getDrinkIBU() == null ) {
-            Log.i("LOGTAG", "IBU is null");
+     //       Log.i("LOGTAG", "IBU is null");
             tempIBU = "00";
         } else {
             tempIBU = (object.getDrinkIBU().toString());
