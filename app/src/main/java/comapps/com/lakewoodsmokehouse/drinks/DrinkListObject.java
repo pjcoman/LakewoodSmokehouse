@@ -28,6 +28,10 @@ class DrinkListObject {
         this.drinkabv = drinkabv;
     }
 
+    public String getDrinkGroup() {
+        return drinkgroup;
+    }
+
     public void setDrinkGroup(String drinkgroup) {
         this.drinkgroup = drinkgroup;
     }

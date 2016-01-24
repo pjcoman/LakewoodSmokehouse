@@ -34,6 +34,9 @@ import comapps.com.lakewoodsmokehouse.R;
  */
 public class MenuViewPager extends AppCompatActivity implements SensorEventListener {
 
+    private String idOfSendingActivity = "";
+    private final String togo = "togo";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,18 +114,33 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
 
         @Override
         public Fragment getItem(int position) {
-            return MenuListViewFragment.newInstance(position + 1);
+            System.out.println("Size of menuGroups is " + getMenuGroups().size());
+            Log.d("Sending activity is", idOfSendingActivity);
+
+
+
+
+                return MenuListViewFragment.newInstance(position + 1);
+
+
         }
 
         @Override
         public int getCount() {
 
-            List<ParseObject> ob;
-
             ArrayList<String> menuGroups = getMenuGroups();
 
-            return menuGroups.size();
+
+
+
+
+                return menuGroups.size();
+
+
+
+
         }
+
 
 
         @Override
@@ -138,9 +156,13 @@ public class MenuViewPager extends AppCompatActivity implements SensorEventListe
                 if (position == i) {
 
 
-                    return new SpannableStringBuilder(" " + menuGroups.get(i));
+
+
+
+                        return new SpannableStringBuilder(" " + menuGroups.get(i));
+                    }
                 }
-            }
+
             return null;
         }
     }

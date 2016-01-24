@@ -9,4 +9,23 @@
     <string name="add_review">Add Review</string>
     <string name="eat">EAT</string>
     <string name="drink">DRINK</string>
+    <string name="barbecue">BARBECUE</string>
+    <string name="craft_beer">CRAFT BEER</string>
+    <string name="cocktails">COCKTAILS</string>
+    <string name="for_pickup">for pickup</string>
+
+    <string-array name="numberofitems">
+        <item>Quantity</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
 </resources>

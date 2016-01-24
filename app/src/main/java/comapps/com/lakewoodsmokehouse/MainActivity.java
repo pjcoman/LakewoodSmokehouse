@@ -20,6 +20,7 @@ import android.widget.Button;
 
 import comapps.com.lakewoodsmokehouse.drinks.DrinksViewPager;
 import comapps.com.lakewoodsmokehouse.menu.MenuViewPager;
+import comapps.com.lakewoodsmokehouse.menu.ToGoListViewActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -310,6 +311,20 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
+
+    public void togo(View v) {
+
+
+
+                Intent intentToGo = new Intent();
+                intentToGo.setClass(MainActivity.this, ToGoListViewActivity.class);
+                intentToGo.putExtra("activityId", "togo");
+                startActivity(intentToGo);
+
+
+            }
+
+
 
 
     public void addReview(View v) {
