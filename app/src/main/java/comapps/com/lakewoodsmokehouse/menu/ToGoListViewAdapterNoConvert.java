@@ -18,30 +18,28 @@ import java.util.List;
 import comapps.com.lakewoodsmokehouse.R;
 
 
-class ToGoListViewAdapter extends BaseAdapter {
+class ToGoListViewAdapterNoConvert extends BaseAdapter {
 
 
     private final Context context;
-    private final List<MenuListObject> menuObjectList;
+    private final List<MenuListObject> menuObject;
 
-    public ToGoListViewAdapter(Context context, List<MenuListObject> menuObject) {
-
-
+    public ToGoListViewAdapterNoConvert(Context context, List<MenuListObject> menuObject) {
 
         this.context = context;
-        this.menuObjectList = menuObject;
+        this.menuObject = menuObject;
 
     }
 
 
     @Override
     public int getCount() {
-        return menuObjectList.size();
+        return menuObject.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return menuObjectList.get(position);
+        return menuObject.get(position);
     }
 
     @Override
@@ -54,6 +52,8 @@ class ToGoListViewAdapter extends BaseAdapter {
         final ViewHolder holder;
 
         if (convertView == null) {
+
+
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.togo_row, parent, false);
@@ -70,7 +70,7 @@ class ToGoListViewAdapter extends BaseAdapter {
             holder.buttonplus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MenuListObject object = menuObjectList.get(position);
+                    MenuListObject object = menuObject.get(position);
                     Integer q = object.getQuantity();
                     q++;
                     object.setQuantity(q);
@@ -86,7 +86,7 @@ class ToGoListViewAdapter extends BaseAdapter {
             holder.buttonminus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MenuListObject object = menuObjectList.get(position);
+                    MenuListObject object = menuObject.get(position);
                     Integer q = object.getQuantity();
 
                     if ( q <= 0) {
@@ -94,8 +94,6 @@ class ToGoListViewAdapter extends BaseAdapter {
                         q--;
 
                         }
-
-
 
                     Log.i("-Counter is after q++ ", Integer.toString(q));
                     object.setQuantity(q);
@@ -113,22 +111,20 @@ class ToGoListViewAdapter extends BaseAdapter {
         } else {
 
             holder = (ViewHolder) convertView.getTag();
-            holder.quantity.setText(menuObjectList.get(position).getQuantity().toString());
 
         }
 
-        holder.quantity.setText(menuObjectList.get(position).getQuantity().toString());
+        holder.quantity.setText(menuObject.get(position).getQuantity().toString());
         holder.position = position;
 
-
-        MenuListObject object = menuObjectList.get(position);
+        MenuListObject object = menuObject.get(position);
 
         if (object != null) {
 
             holder.item.setText(object.getItem());
             holder.price.setText(object.getPrice());
             holder.group.setText(object.getGroup());
-            holder.quantity.setText(object.getQuantity().toString());
+          //  holder.quantity.setText(object.getQuantity().toString());
 
             Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/MerriweatherSans-Light.ttf");
             holder.item.setTypeface(font);
@@ -142,21 +138,25 @@ class ToGoListViewAdapter extends BaseAdapter {
                 holder.item.setVisibility(View.GONE);
                 holder.price.setVisibility(View.GONE);
                 holder.group.setVisibility(View.GONE);
+                holder.ll.setVisibility(View.GONE);
                 holder.quantity.setVisibility(View.GONE);
-
+                //        holder.spinner.setVisibility(View.GONE);
             } else if (checkForNull.equalsIgnoreCase("")) {
                 holder.item.setVisibility(View.GONE);
                 holder.price.setVisibility(View.GONE);
                 holder.group.setVisibility(View.GONE);
+                holder.ll.setVisibility(View.GONE);
                 holder.quantity.setVisibility(View.GONE);
-
+                //        holder.spinner.setVisibility(View.GONE);
             } else {
                 holder.item.setVisibility(View.VISIBLE);
                 holder.price.setVisibility(View.VISIBLE);
                 holder.group.setVisibility(View.VISIBLE);
+                holder.ll.setVisibility(View.VISIBLE);
                 holder.quantity.setVisibility(View.VISIBLE);
+                //        holder.spinner.setVisibility(View.VISIBLE);
 
-                
+
             }
         }
 

@@ -60,6 +60,13 @@
         />
 
         <activity
+            android:name=".menu.ToGoRecyclerActivity"
+            android:theme="@style/AppTheme"
+
+
+            />
+
+        <activity
             android:name=".menu.ToGoListViewActivity"
             android:theme="@style/AppTheme"
 

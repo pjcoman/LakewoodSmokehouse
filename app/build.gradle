@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "comapps.com.lakewoodsmokehouse"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 21
         versionCode 9
         versionName "1.8"
     }
@@ -22,11 +22,13 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.altbeacon:android-beacon-library:2+'
+
+
 }

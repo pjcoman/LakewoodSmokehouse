@@ -318,6 +318,8 @@ public class MainActivity extends AppCompatActivity  {
 
                 Intent intentToGo = new Intent();
                 intentToGo.setClass(MainActivity.this, ToGoListViewActivity.class);
+                //
+        // intentToGo.setClass(MainActivity.this, ToGoRecyclerActivity.class);
                 intentToGo.putExtra("activityId", "togo");
                 startActivity(intentToGo);
 

@@ -1,14 +1,10 @@
 package comapps.com.lakewoodsmokehouse.menu;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -20,13 +16,13 @@ import java.util.List;
 import comapps.com.lakewoodsmokehouse.R;
 
 
-public class ToGoListViewActivity extends AppCompatActivity {
+public class ToGoRecyclerActivity extends AppCompatActivity {
 
-    private List<MenuListObject> menuObjectList;
-    private ListView lv;
+    public static final String TAG = "LakewoodSmokehouse";
 
-
-
+    private List<MenuListObject> menuObjectList = new ArrayList<MenuListObject>();
+    private RecyclerView mRecyclerView;
+    private ToGoRecyclerAdapter adapter;
 
 
     @Override
@@ -34,41 +30,36 @@ public class ToGoListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_togomenulist);
 
-
-        lv = (ListView) findViewById(android.R.id.list);
-
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
 
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String menuitem = menuObjectList.get(position).getItem().toString();
 
 
-                Toast sort = Toast.makeText(ToGoListViewActivity.this, menuitem, Toast.LENGTH_SHORT);
-                sort.setGravity(Gravity.CENTER, 0, 0);
-                sort.show();
 
 
-            }
-        });
+        updateList();
 
 
-        new RemoteDataTask().execute();
+
 
 
     }
 
 
-    class RemoteDataTask extends AsyncTask<Void, Void, Void> {
+    public void updateList() {
 
 
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ToGoRecyclerActivity.this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
 
-        @Override
-        protected Void doInBackground(Void... params) {
+
+        adapter = new ToGoRecyclerAdapter(ToGoRecyclerActivity.this, menuObjectList);
+        mRecyclerView.setAdapter(adapter);
+        adapter.clearAdapter();
+
+
 
             List<ParseObject> ob;
 
@@ -127,21 +118,12 @@ public class ToGoListViewActivity extends AppCompatActivity {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            // Locate the listview in listview_main.xml
-            lv = (ListView) findViewById(android.R.id.list);
-            // Pass the results into ParseListViewAdapter.java
-            ToGoListViewAdapter adapter = new ToGoListViewAdapter(ToGoListViewActivity.this, menuObjectList);
-            lv.setAdapter(adapter);
-
 
         }
+
+
     }
-}
+
 
 
 

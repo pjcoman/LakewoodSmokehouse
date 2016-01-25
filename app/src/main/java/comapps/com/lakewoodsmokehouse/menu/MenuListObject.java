@@ -6,7 +6,7 @@ class MenuListObject {
     private String group;
     private String price;
     private String description;
-    private Integer quantity;
+    private Integer quantity = 0;
 
 
 

@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="item"
+        android:text="group"
         android:id="@+id/groupTxt"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -46,8 +46,9 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:id="@+id/tableRow">
 
         <TextView
             android:layout_width="50dp"
