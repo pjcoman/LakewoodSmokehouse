@@ -68,7 +68,8 @@ class DrinkListObject {
                 ", drinkabv=" + drinkabv.toString() +
                 ", drinkgroup=" + drinkgroup +
                 ", drinkprice=" + drinkprice +
-                ", drinkIBU=" + drinkIBU.toString() + ", drinkinfo=" + drinkinfo + "]";
+                ", drinkIBU=" + drinkIBU.toString() +
+                ", drinkinfo=" + drinkinfo + "]";
     }
 
 

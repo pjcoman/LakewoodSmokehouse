@@ -6,6 +6,7 @@ class MenuListObject {
     private String group;
     private String price;
     private String description;
+    private Integer quantity;
 
 
 
@@ -41,10 +42,22 @@ class MenuListObject {
         this.description = description;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
 
     @Override
     public String toString() {
-        return "MenuList [item=" + item + ", " + "price=" + price + "group=" + group +"description " +"]";
+        return "MenuList [item=" + item +
+                ", price=" + price +
+                ". group=" + group +
+                ". description=" + description +
+                ", quantity=" + "]";
     }
 
 

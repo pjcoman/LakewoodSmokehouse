@@ -13,6 +13,7 @@
     <string name="craft_beer">CRAFT BEER</string>
     <string name="cocktails">COCKTAILS</string>
     <string name="for_pickup">for pickup</string>
+    <string name="item">item</string>
 
     <string-array name="numberofitems">
         <item>Quantity</item>

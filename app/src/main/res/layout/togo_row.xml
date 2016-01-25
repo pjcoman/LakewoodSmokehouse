@@ -4,34 +4,79 @@
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:background="@drawable/button_rounded_corners_red"
-              >
+              android:id="@+id/linearlayouttogorow"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:focusable="false"
+              android:focusableInTouchMode="false">
 
 
 
 
     <TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="item"
-    android:id="@+id/itemTxt"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    android:gravity="center_vertical|center_horizontal"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/item"
+        android:id="@+id/itemTxt"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="item"
+        android:id="@+id/groupTxt"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="10dp"/>
+
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="$$$$"
         android:id="@+id/priceTxt"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:gravity="center_vertical|center_horizontal"/>
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="10dp"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/quantityTV"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/buttonminus"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/buttonplus"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+    </TableRow>
 
 
 </LinearLayout>
