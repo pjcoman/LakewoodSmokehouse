@@ -45,10 +45,11 @@ public class ToGoListViewActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String menuitem = menuObjectList.get(position).getItem().toString();
+                String menuitem = menuObjectList.get(position).getItem();
+                String qty = menuObjectList.get(position).getQuantity().toString();
 
 
-                Toast sort = Toast.makeText(ToGoListViewActivity.this, menuitem, Toast.LENGTH_SHORT);
+                Toast sort = Toast.makeText(ToGoListViewActivity.this, menuitem + " (" + qty + ")", Toast.LENGTH_SHORT);
                 sort.setGravity(Gravity.CENTER, 0, 0);
                 sort.show();
 

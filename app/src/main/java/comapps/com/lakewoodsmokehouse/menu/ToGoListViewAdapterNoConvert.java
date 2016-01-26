@@ -62,7 +62,7 @@ class ToGoListViewAdapterNoConvert extends BaseAdapter {
             holder.item = (TextView) convertView.findViewById(R.id.itemTxt);
             holder.price = (TextView) convertView.findViewById(R.id.priceTxt);
             holder.group = (TextView) convertView.findViewById(R.id.groupTxt);
-            holder.ll = (LinearLayout) convertView.findViewById(R.id.linearlayouttogorow);
+            holder.ll = (LinearLayout) convertView.findViewById(R.id.togorow);
             holder.buttonminus = (Button) convertView.findViewById(R.id.buttonminus);
             holder.buttonplus = (Button) convertView.findViewById(R.id.buttonplus);
             holder.quantity = (TextView) convertView.findViewById(R.id.quantityTV);

@@ -20,110 +20,80 @@ public class ToGoRecyclerActivity extends AppCompatActivity {
 
     public static final String TAG = "LakewoodSmokehouse";
 
-    private List<MenuListObject> menuObjectList = new ArrayList<MenuListObject>();
-    private RecyclerView mRecyclerView;
-    private ToGoRecyclerAdapter adapter;
+    public List<MenuListObject> menuObjectList;
+    public RecyclerView mRecyclerView;
+    public ToGoRecyclerAdapter adapter;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_togomenulist);
+        setContentView(R.layout.togolist_recyclerview);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
+        adapter = new ToGoRecyclerAdapter(getData());
 
-
-
-
-
-
-
-        updateList();
-
-
-
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
     }
 
+    public static List<MenuListObject> getData() {
 
-    public void updateList() {
+        List<MenuListObject> menuObjectList = new ArrayList<>();
 
+        try {
 
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ToGoRecyclerActivity.this);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+            ParseQuery<ParseObject> query = new ParseQuery<>(
+                    "ls_menu").fromLocalDatastore();
 
-
-        adapter = new ToGoRecyclerAdapter(ToGoRecyclerActivity.this, menuObjectList);
-        mRecyclerView.setAdapter(adapter);
-        adapter.clearAdapter();
-
-
+            query.orderByAscending("groupsort").addAscendingOrder("sort");
 
             List<ParseObject> ob;
 
+            ob = query.find();
 
-            try {
+            menuObjectList = new ArrayList<>();
 
+            for (ParseObject menu : ob) {
 
-                // Locate the class table named "stansdata" in Parse.com
-                ParseQuery<ParseObject> query = new ParseQuery<>(
-                        "ls_menu").fromLocalDatastore();
-                // Locate the column named "name" in Parse.com and order list
-                // by ascending
-
-
-
-                query.orderByAscending("groupsort").addAscendingOrder("sort");
+                String tempItem = (String) menu.get("item");
+                String tempGroup = (String) menu.get("group");
+                String tempPrice = (String) menu.get("price");
 
 
-                ob = query.find();
+                MenuListObject menuItem = new MenuListObject();
 
+                if (menu.get("item") != null && !menu.get("item").equals("") && !menu.get("item").equals("null")) {
+                    Log.i("tempItem is ", tempItem);
+                    menuItem.setItem(tempItem);
+                }
 
+                if (menu.get("group") != null && !menu.get("group").equals("") && !menu.get("group").equals("null")) {
+                    Log.i("tempGroup is ", tempGroup);
+                    menuItem.setGroup(tempGroup);
+                }
 
-                menuObjectList = new ArrayList<>();
+                if (menu.get("price") != null && !menu.get("price").equals("") && !menu.get("price").equals("null")) {
+                    Log.i("tempPrice is ", tempPrice);
+                    menuItem.setPrice(tempPrice);
+                }
 
-                for (ParseObject menu : ob) {
-                    // Locate images in flag column
+                menuItem.setQuantity(0);
 
-
-                    MenuListObject menuItem = new MenuListObject();
-
-                    if (menu.get("item") != null && !menu.get("item").equals("") && !menu.get("item").equals("null")) {
-                        String tempItem = (String) menu.get("item");
-                        Log.i("tempItem is ", tempItem);
-                        menuItem.setItem(tempItem);
-                    }
-
-                    if (menu.get("group") != null && !menu.get("group").equals("") && !menu.get("group").equals("null"))  {
-                        String tempGroup = (String) menu.get("group");
-                        Log.i("tempGroup is ", tempGroup);
-                        menuItem.setGroup(tempGroup);
-                    }
-
-                    if (menu.get("price") != null && !menu.get("price").equals("") && !menu.get("price").equals("null")) {
-                        String tempPrice = (String) menu.get("price");
-                        Log.i("tempPrice is ", tempPrice);
-                        menuItem.setPrice(tempPrice);
-                    }
-
-                    menuItem.setQuantity(0);
-
-                    menuObjectList.add(menuItem);
+                if (tempItem != null) { menuObjectList.add(menuItem); }
+                
                 }
 
 
-            } catch (ParseException e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-
+        } catch (ParseException e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
         }
 
+        return menuObjectList;
 
     }
-
-
-
-
+}

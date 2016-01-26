@@ -20,7 +20,7 @@ import android.widget.Button;
 
 import comapps.com.lakewoodsmokehouse.drinks.DrinksViewPager;
 import comapps.com.lakewoodsmokehouse.menu.MenuViewPager;
-import comapps.com.lakewoodsmokehouse.menu.ToGoListViewActivity;
+import comapps.com.lakewoodsmokehouse.menu.ToGoRecyclerActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -317,9 +317,9 @@ public class MainActivity extends AppCompatActivity  {
 
 
                 Intent intentToGo = new Intent();
-                intentToGo.setClass(MainActivity.this, ToGoListViewActivity.class);
+            //    intentToGo.setClass(MainActivity.this, ToGoListViewActivity.class);
                 //
-        // intentToGo.setClass(MainActivity.this, ToGoRecyclerActivity.class);
+                intentToGo.setClass(MainActivity.this, ToGoRecyclerActivity.class);
                 intentToGo.putExtra("activityId", "togo");
                 startActivity(intentToGo);
 

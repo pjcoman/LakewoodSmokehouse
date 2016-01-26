@@ -29,6 +29,8 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.altbeacon:android-beacon-library:2+'
+    compile 'org.lucasr.twowayview:twowayview:0.1.4'
+    compile 'org.lucasr.twowayview:twowayview:0.1.4'
 
 
 }
