@@ -15,18 +15,66 @@
     <string name="for_pickup">for pickup</string>
     <string name="item">item</string>
 
-    <string-array name="numberofitems">
-        <item>Quantity</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+    <string-array name="meat_selections">
+        <item>CHOOSE</item>
+        <item>BRISKET(SLICED)</item>
+        <item>BRISKET(CHOPPED)</item>
+        <item>PORK</item>
+        <item>TURKEY</item>
+        <item>SAUSAGE</item>
+        <item>SAUSAGE(CHEDDAR)</item>
     </string-array>
+
+    <string-array name="meat_selections2">
+        <item>CHOOSE</item>
+        <item>BRISKET(SLICED) + BRISKET(SLICED)</item>
+        <item>BRISKET(SLICED) + BRISKET(CHOPPED)</item>
+        <item>BRISKET(SLICED) + PORK</item>
+        <item>BRISKET(SLICED) + TURKEY</item>
+        <item>BRISKET(SLICED) + SAUSAGE</item>
+        <item>BRISKET(SLICED) + SAUSAGE(CHEDDAR)</item>
+        <item>BRISKET(CHOPPED) + BRISKET(CHOPPED)</item>
+        <item>BRISKET(CHOPPED) + PORK</item>
+        <item>BRISKET(CHOPPED) + TURKEY</item>
+        <item>BRISKET(CHOPPED) + SAUSAGE</item>
+        <item>BRISKET(CHOPPED) + SAUSAGE(CHEADDAR)</item>
+        <item>PORK + PORK</item>
+        <item>PORK + TURKEY</item>
+        <item>PORK + SAUSAGE</item>
+        <item>PORK + SAUSAGE(CHEADDAR)</item>
+        <item>TURKEY + TURKEY</item>
+        <item>TURKEY + SAUSAGE</item>
+        <item>TURKEY + SAUSAGE(CHEADDAR)</item>
+        <item>SAUSAGE + SAUSAGE</item>
+        <item>SAUSAGE + SAUSAGE(CHEDDAR)</item>
+        <item>SAUSAGE(CHEADDAR) + SAUSAGE(CHEDDAR)</item>
+
+    </string-array>
+
+    <string-array name="meat_selections3">
+
+    <item>BRISKET(sliced) + BRISKET(chopped) + PORK</item>
+    <item>BRISKET(sliced) + BRISKET(chopped) + TURKEY</item>
+    <item>BRISKET(sliced) + BRISKET(chopped) + SAUSAGE(cheddar)</item>
+    <item>BRISKET(sliced) + BRISKET(chopped) + SAUSAGE</item>
+    <item>BRISKET(sliced) + PORK + TURKEY</item>
+    <item>BRISKET(sliced) + PORK + SAUSAGE(cheddar)</item>
+    <item>BRISKET(sliced) + PORK + SAUSAGE</item>
+    <item>BRISKET(sliced) + TURKEY + SAUSAGE(cheddar)</item>
+    <item>BRISKET(sliced) + TURKEY + SAUSAGE</item>
+    <item>BRISKET(sliced) + SAUSAGE(cheddar) + SAUSAGE</item>
+    <item>BRISKET(chopped) + PORK + TURKEY</item>
+    <item>BRISKET(chopped) + PORK + SAUSAGE(cheddar)</item>
+    <item>BRISKET(chopped) + PORK + SAUSAGE</item>
+    <item>BRISKET(chopped) + TURKEY + SAUSAGE(cheddar)</item>
+    <item>BRISKET(chopped) + TURKEY + SAUSAGE</item>
+    <item>BRISKET(chopped) + SAUSAGE(cheddar) + SAUSAGE</item>
+    <item>PORK + TURKEY + SAUSAGE(cheddar)</item>
+    <item>PORK + TURKEY + SAUSAGE</item>
+    <item>PORK + SAUSAGE(cheddar) + SAUSAGE</item>
+    <item>TURKEY + SAUSAGE(cheddar) + SAUSAGE</item>
+
+    </string-array>
+
 
 </resources>

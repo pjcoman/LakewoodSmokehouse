@@ -35,6 +35,33 @@
         />
 
 
+    <AutoCompleteTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE"
+        android:id="@+id/autoCompleteTextView"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"/>
+
+    <AutoCompleteTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE"
+        android:id="@+id/autoCompleteTextView2"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"/>
+
+    <AutoCompleteTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE"
+        android:id="@+id/autoCompleteTextView3"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"/>
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

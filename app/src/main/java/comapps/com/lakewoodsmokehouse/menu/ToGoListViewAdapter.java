@@ -22,9 +22,9 @@ public class ToGoListViewAdapter extends BaseAdapter {
 
 
     private final Context context;
-    private final List<MenuListObject> menuObjectList;
+    private final List<MenuObject> menuObjectList;
 
-    public ToGoListViewAdapter(Context context, List<MenuListObject> menuObject) {
+    public ToGoListViewAdapter(Context context, List<MenuObject> menuObject) {
 
 
 
@@ -70,7 +70,7 @@ public class ToGoListViewAdapter extends BaseAdapter {
             holder.buttonplus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MenuListObject object = menuObjectList.get(position);
+                    MenuObject object = menuObjectList.get(position);
                     Integer q = object.getQuantity();
                     q++;
                     object.setQuantity(q);
@@ -86,7 +86,7 @@ public class ToGoListViewAdapter extends BaseAdapter {
             holder.buttonminus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MenuListObject object = menuObjectList.get(position);
+                    MenuObject object = menuObjectList.get(position);
                     Integer q = object.getQuantity();
 
                     if ( q <= 0) {
@@ -121,7 +121,7 @@ public class ToGoListViewAdapter extends BaseAdapter {
         holder.position = position;
 
 
-        MenuListObject object = menuObjectList.get(position);
+        MenuObject object = menuObjectList.get(position);
 
         if (object != null) {
 

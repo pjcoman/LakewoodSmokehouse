@@ -21,11 +21,11 @@ class MenuListViewAdapter extends BaseAdapter {
 
 
     private final Context context;
-    private final List<MenuListObject> menuObject;
+    private final List<MenuObject> menuObject;
 
 
 
-    public MenuListViewAdapter(Context context, List<MenuListObject> menuObject) {
+    public MenuListViewAdapter(Context context, List<MenuObject> menuObject) {
 
         this.context = context;
         this.menuObject = menuObject;
@@ -77,7 +77,7 @@ class MenuListViewAdapter extends BaseAdapter {
         }
         // S
         //
-        MenuListObject object = menuObject.get(position);
+        MenuObject object = menuObject.get(position);
 
         holder.item.setText(object.getItem());
         holder.price.setText(object.getPrice());

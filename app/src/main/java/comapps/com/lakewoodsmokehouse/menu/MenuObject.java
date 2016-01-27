@@ -1,12 +1,16 @@
 package comapps.com.lakewoodsmokehouse.menu;
 
-class MenuListObject {
+class MenuObject {
 
     private String item;
     private String group;
     private String price;
     private String description;
     private Integer quantity = 0;
+    private String selection;
+    private String selection2;
+    private String selection3;
+
 
 
 
@@ -42,6 +46,33 @@ class MenuListObject {
         this.description = description;
     }
 
+    public String getSelection() {
+        return selection;
+    }
+
+    public void setSelection(String selection) {
+        this.selection = selection;
+    }
+
+
+    public String getSelection2() {
+        return selection2;
+    }
+
+    public void setSelection2(String selection2) {
+        this.selection2 = selection2;
+    }
+
+
+    public String getSelection3() {
+        return selection3;
+    }
+
+    public void setSelection3(String selection3) {
+        this.selection3 = selection3;
+    }
+
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -51,13 +82,17 @@ class MenuListObject {
     }
 
 
+
     @Override
     public String toString() {
         return "MenuList [item=" + item +
                 ", price=" + price +
                 ". group=" + group +
                 ". description=" + description +
-                ", quantity=" + "]";
+                ", quantity=" + quantity +
+                ", selection=" + selection +
+                ", selection2=" + selection2 +
+                ", selection3=" + selection3 +"]";
     }
 
 

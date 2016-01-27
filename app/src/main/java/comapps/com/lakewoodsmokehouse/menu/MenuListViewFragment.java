@@ -25,7 +25,7 @@ import comapps.com.lakewoodsmokehouse.R;
 public class MenuListViewFragment extends ListFragment {
 
     private static final String ARG_PAGE_NUMBER = "page_number";
-    private List<MenuListObject> menuObject;
+    private List<MenuObject> menuObject;
     int x = 0;
 
     public MenuListViewFragment() {
@@ -83,7 +83,7 @@ public class MenuListViewFragment extends ListFragment {
                 // Locate images in flag column
 
 
-                MenuListObject menuItem = new MenuListObject();
+                MenuObject menuItem = new MenuObject();
 
                 String tempItem = (String) menu.get("item");
                 if ( tempItem != null ) { tempItem.trim();}

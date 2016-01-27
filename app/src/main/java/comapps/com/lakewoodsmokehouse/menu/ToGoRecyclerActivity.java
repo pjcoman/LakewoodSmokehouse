@@ -1,5 +1,6 @@
 package comapps.com.lakewoodsmokehouse.menu;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,35 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comapps.com.lakewoodsmokehouse.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class ToGoRecyclerActivity extends AppCompatActivity {
 
     public static final String TAG = "LakewoodSmokehouse";
 
-    public List<MenuListObject> menuObjectList;
+    public List<MenuObject> menuObjectList;
     public RecyclerView mRecyclerView;
     public ToGoRecyclerAdapter adapter;
+
+
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/MerriweatherSans-Italic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
+
         setContentView(R.layout.togolist_recyclerview);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         adapter = new ToGoRecyclerAdapter(getData());
-
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
     }
 
-    public static List<MenuListObject> getData() {
+    public static List<MenuObject> getData() {
 
-        List<MenuListObject> menuObjectList = new ArrayList<>();
+        List<MenuObject> menuObjectList = new ArrayList<>();
 
         try {
 
@@ -64,7 +74,7 @@ public class ToGoRecyclerActivity extends AppCompatActivity {
                 String tempPrice = (String) menu.get("price");
 
 
-                MenuListObject menuItem = new MenuListObject();
+                MenuObject menuItem = new MenuObject();
 
                 if (menu.get("item") != null && !menu.get("item").equals("") && !menu.get("item").equals("null")) {
                     Log.i("tempItem is ", tempItem);
@@ -83,8 +93,10 @@ public class ToGoRecyclerActivity extends AppCompatActivity {
 
                 menuItem.setQuantity(0);
 
+
+
                 if (tempItem != null) { menuObjectList.add(menuItem); }
-                
+
                 }
 
 
@@ -94,6 +106,15 @@ public class ToGoRecyclerActivity extends AppCompatActivity {
         }
 
         return menuObjectList;
+
+    }
+
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
 
     }
 }

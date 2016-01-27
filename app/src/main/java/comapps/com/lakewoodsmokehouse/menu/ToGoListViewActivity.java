@@ -22,7 +22,7 @@ import comapps.com.lakewoodsmokehouse.R;
 
 public class ToGoListViewActivity extends AppCompatActivity {
 
-    private List<MenuListObject> menuObjectList;
+    private List<MenuObject> menuObjectList;
     private ListView lv;
 
 
@@ -98,7 +98,7 @@ public class ToGoListViewActivity extends AppCompatActivity {
                     // Locate images in flag column
 
 
-                    MenuListObject menuItem = new MenuListObject();
+                    MenuObject menuItem = new MenuObject();
 
                     if (menu.get("item") != null && !menu.get("item").equals("") && !menu.get("item").equals("null")) {
                         String tempItem = (String) menu.get("item");
